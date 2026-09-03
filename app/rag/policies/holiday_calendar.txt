@@ -1,0 +1,13 @@
+Company Holiday Calendar 2026
+
+The company observes the following public holidays in 2026, in addition to the standard Saturday and Sunday weekend. These dates are excluded automatically when calculating working days for any leave request, so employees are not charged leave balance for a holiday that falls inside their requested date range.
+
+January 1 (New Year's Day)
+January 26 (Republic Day)
+August 15 (Independence Day)
+October 2 (Gandhi Jayanti)
+December 25 (Christmas Day)
+
+If a public holiday falls on a weekend, no separate replacement weekday is granted, since the holiday calendar is set at the start of the year with weekends already taken into account.
+
+Employees in locations with additional regional or festival holidays should refer to their department's location-specific calendar, published separately by HR, in addition to this company-wide list.

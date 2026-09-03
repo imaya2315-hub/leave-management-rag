@@ -1,0 +1,11 @@
+Leave Approval and Escalation Procedure
+
+Every leave request starts in Pending status once submitted and is not deducted from the employee's balance until it is approved. Only an employee's direct manager can approve or reject a Pending leave request.
+
+Standard approval turnaround: managers are expected to approve or reject a leave request within 2 working days of it being submitted. Sick Leave requests should be actioned the same working day where possible, since they are often applied for on short notice.
+
+Escalation: if a leave request remains Pending for more than 3 working days without a manager response, the employee should escalate to HR directly, who can reassign the approval to a secondary approver (typically the manager's own manager). Escalated requests are prioritized for same-day review by HR.
+
+Cancellation: an employee may cancel their own leave request at any time before its end date, whether it is still Pending or already Approved. If the leave had already been Approved (and therefore already deducted from the balance), cancelling it refunds the balance in full. Cancelling a Pending request does not require manager involvement, since nothing was deducted yet.
+
+Rejected requests do not affect the employee's leave balance, since balance is only deducted at the point of approval, not at the point of application.

@@ -1,0 +1,20 @@
+fastapi==0.139.0
+uvicorn[standard]==0.51.0
+sqlalchemy==2.0.51
+psycopg2-binary==2.9.12
+pydantic==2.13.4
+python-dotenv==1.0.1
+bcrypt==5.0.0
+pyjwt==2.13.0
+python-multipart==0.0.32
+pytest==9.1.1
+httpx
+alembic==1.14.0
+scikit-learn==1.7.2
+
+# --- rag_lab/ + streamlit_app.py (Day 5: standalone RAG learning pipeline) ---
+sentence-transformers==6.0.0
+faiss-cpu==1.15.0
+streamlit==1.62.0
+requests==2.33.1
+groq==1.7.0
