@@ -1,4 +1,4 @@
-# Leave Management System — FastAPI + PostgreSQL + RAG + LLM Tool Calling
+# Leave Management System - FastAPI + PostgreSQL + RAG + LLM Tool Calling
 
 A layered leave-management application with:
 
