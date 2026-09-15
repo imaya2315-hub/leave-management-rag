@@ -1,4 +1,4 @@
-# Leave Management RAG — Final Evaluation Report
+# Leave Management RAG - Final Evaluation Report
 
 ## 1. Overview
 
