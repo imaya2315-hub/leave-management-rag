@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 # Leave Management System - FastAPI + PostgreSQL + RAG + LLM Tool Calling
+=======
+# Leave Management System — FastAPI + PostgreSQL + RAG + LLM Tool Calling
+>>>>>>> Stashed changes
 
 A layered leave-management application with:
 
@@ -987,7 +991,6 @@ pip install -r requirements.txt
 
 alembic upgrade head
 
-uvicorn app.main:app --reload
 ```
 
 In a second terminal:
@@ -1053,3 +1056,112 @@ Multi-turn leave workflows
 ```
 
 The evaluated RAG architecture demonstrates strong retrieval performance, with reranking consistently providing the largest measured improvement in ranking quality.
+
+
+---
+
+# Pinecone and Advanced Retrieval
+
+## 1. Why Pinecone Was Added
+While the baseline in-memory FAISS vector store provides fast local vector search for development, production enterprise search often demands:
+- **Managed cloud infrastructure**: Persistence without local vector index serialization and reloading.
+- **Hybrid search**: Seamless simultaneous execution of dense semantic embeddings and sparse lexical tokens (BM25) over unified vector payloads.
+- **Server-side metadata filtering**: Dynamic filtering on structured fields (such as `policy_category` or `leave_type`) during search rather than costly post-query filtering.
+- **Incremental indexing & mutation**: Real-time upserts and deletions without rebuilding the index.
+
+## 2. FAISS vs. Pinecone Comparison
+| Capability | FAISS (Baseline) | Pinecone (Advanced) |
+|---|---|---|
+| **Architecture** | In-process, in-memory C++ library | Cloud-native serverless vector database |
+| **Search Paradigm** | Dense similarity search | Dense, sparse, and hybrid search |
+| **Metadata Filtering** | Separate Python list; post-retrieval filtering | Native pre-filtering / single-stage filtering (`$eq`, `$in`, `$and`) |
+| **Multi-field Payload** | Only dense vectors in index | Dense vector + sparse vector + metadata in single vector object |
+| **Scalability** | Single machine RAM-bound | Horizontally scalable serverless |
+| **Primary Use** | Local development, offline evaluation, edge | Production deployment, enterprise policy retrieval |
+
+## 3. Retrieval Modes & Convex Hybrid Scoring
+The system supports three retrieval modes via a single convex weighting parameter $\alpha \in [0.0, 1.0]$:
+$$\text{Final Score} = (\alpha \times \text{Dense Score}) + ((1 - \alpha) \times \text{Sparse Score})$$
+
+- **Dense Only ($\alpha = 1.0$)**: Uses `sentence-transformers/all-MiniLM-L6-v2` embeddings (384 dimensions) to capture semantic concepts regardless of vocabulary overlap (e.g. mapping "taking days off" to "leave entitlement").
+- **Sparse Only ($\alpha = 0.0$)**: Uses Okapi BM25 (`BM25SparseEncoder`) term frequencies and inverse document frequencies (IDF) to reward exact keyword matches (e.g., specific holiday names, day counts like "20" or "90 days").
+- **Hybrid Retrieval ($0.0 < \alpha < 1.0$)**: Fuses dense and sparse representations. The evaluation on the 19-question hard benchmark proved that **$\alpha = 0.75$ achieved 94.7% Top-1 accuracy**, outperforming both pure dense (78.9%) and pure sparse (89.5%).
+
+## 4. Metadata Filtering
+Metadata is derived strictly from verified policy documents during chunking:
+- `policy_category`: `"eligibility"`, `"carry_forward"`, `"holiday"`, `"approval"`
+- `leave_type`: `"annual"`, `"sick"`, `"casual"`, `"general"`
+- `document_version`: `"v1.0"`, `"2026.1"`
+- `source`, `filename`, `chunk_index`, `text`
+
+Applying metadata filters (e.g., `{"policy_category": "carry_forward"}`) prunes the search space by **75%** (down to ~3.5 chunks from 14), eliminating cross-document false positives and reducing query latency.
+
+## 5. Architectural Decision Record: Why Namespaces Are Intentionally NOT Used
+Multi-tenancy or namespace isolation was explicitly omitted from this design:
+1. **Unified Enterprise Knowledge**: Policy guidelines (holidays, carry-forward caps, approval escalation) apply globally across the company.
+2. **Access Control Separation**: Employee authorization, role boundaries (Employee vs. Manager vs. HR), and leave balances reside deterministically in PostgreSQL and FastAPI. Vector knowledge is public to all authenticated staff, making multitenant vector partitioning an unnecessary anti-pattern.
+3. **Operational Simplicity**: Single global index eliminates namespace routing errors and cross-namespace query penalties.
+
+## 6. Scientific Evaluation Results
+All retrieval benchmarks were executed strictly **without calling LLMs** (preserving Groq API quotas).
+
+### Experiment 1: FAISS Dense vs. Pinecone Dense (Controlled Comparison)
+*Corpus, 80/20 chunks, MiniLM embeddings, and Top-K=5 kept identical.*
+| Dataset | Backend | Top-1 | MRR | Relevant Top-3 | Query Latency | Setup Time |
+|---|---|---:|---:|---:|---:|---:|
+| **12-Question Baseline** | FAISS (Dense) | 100.0% | 1.000 | 100.0% | 17.5 ms | 0.584 s |
+| **12-Question Baseline** | Pinecone (Dense) | 100.0% | 1.000 | 100.0% | 16.2 ms | 0.002 s |
+| **19-Question Hard Set** | FAISS (Dense) | 78.9% | 0.886 | 100.0% | 21.4 ms | 0.584 s |
+| **19-Question Hard Set** | Pinecone (Dense) | 78.9% | 0.886 | 100.0% | 17.4 ms | 0.002 s |
+| **Q06-Q15 Set** | FAISS (Dense) | 90.0% | 0.950 | 100.0% | 15.1 ms | 0.584 s |
+| **Q06-Q15 Set** | Pinecone (Dense) | 90.0% | 0.950 | 100.0% | 15.9 ms | 0.002 s |
+
+*Conclusion: With identical embeddings, FAISS and Pinecone dense retrieval yield identical accuracy, isolating backend mechanics.*
+
+### Experiment 2: Hybrid Alpha Sweep (Pinecone on 19 Hard Questions)
+| Retrieval Mode | Alpha | Top-1 | MRR | Relevant Top-3 | Query Latency |
+|---|---:|---:|---:|---:|---:|
+| Dense | 1.00 | 78.9% | 0.886 | 100.0% | 25.6 ms |
+| **Hybrid (Optimal)** | **0.75** | **94.7%** | **0.965** | **100.0%** | **32.9 ms** |
+| Hybrid | 0.50 | 89.5% | 0.939 | 100.0% | 23.9 ms |
+| Hybrid | 0.25 | 89.5% | 0.939 | 100.0% | 24.2 ms |
+| Sparse | 0.00 | 89.5% | 0.939 | 100.0% | 26.4 ms |
+
+### Experiment 3: Metadata Filtering Impact
+| Condition | Top-1 | MRR | Relevant Top-3 | Avg Latency | Candidate Search Space |
+|---|---:|---:|---:|---:|---|
+| **No Metadata Filter** | 100.0% | 1.000 | 100.0% | 23.0 ms | 14 chunks (100%) |
+| **With Relevant Filter** | 100.0% | 1.000 | 100.0% | 22.1 ms | ~3.5 chunks (25%) |
+
+### Experiment 4: Full Pipeline with Cross-Encoder Reranking
+| Pipeline | Top-1 | MRR | Relevant Top-3 | Avg Latency |
+|---|---:|---:|---:|---:|
+| FAISS Dense (Top-10) $\rightarrow$ ms-marco Cross-Encoder $\rightarrow$ Top-3 | 100.0% | 1.000 | 100.0% | 2755.6 ms |
+| Pinecone Hybrid (Top-10) $\rightarrow$ ms-marco Cross-Encoder $\rightarrow$ Top-3 | 94.7% | 0.965 | 100.0% | 451.3 ms |
+
+## 7. Extended Architecture Diagram
+
+```text
+Policy Documents
+       ↓
+Chunking + Metadata Generation (source, category, leave_type, version)
+       ↓
+Embedding Generation (all-MiniLM-L6-v2) + BM25 Sparse Encoding
+       ↓
+FAISS (In-Memory)  OR  Pinecone (Managed Vector DB)
+       ↓
+Dense / Sparse / Hybrid Retrieval (alpha = 0.75)
+       ↓
+Metadata Filtering ($eq, $in, $and on policy_category / leave_type)
+       ↓
+Top-K Candidate Chunks (K = 10)
+       ↓
+Cross-Encoder Reranking (ms-marco-MiniLM-L-6-v2)
+       ↓
+Top-3 Filtered Context Chunks
+       ↓
+Grounded LLM Generation (Groq / Qwen / GPT-OSS)
+       ↓
+Verified Policy Answer + Structured Citations
+```
+

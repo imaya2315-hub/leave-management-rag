@@ -9,12 +9,18 @@ from pathlib import Path
 
 
 def load_documents(folder: str) -> list[dict]:
-    """Returns [{"title": ..., "content": ...}, ...] for every .txt file in folder."""
+    """Returns [{"title": ..., "filename": ..., "source": ..., "content": ...}, ...] for every .txt file in folder."""
     documents = []
     for path in sorted(Path(folder).glob("*.txt")):
         title = path.stem.replace("_", " ").title()
-        documents.append({"title": title, "content": path.read_text(encoding="utf-8")})
+        documents.append({
+            "title": title,
+            "filename": path.name,
+            "source": str(path).replace("\\", "/"),
+            "content": path.read_text(encoding="utf-8"),
+        })
     return documents
+
 
 
 if __name__ == "__main__":

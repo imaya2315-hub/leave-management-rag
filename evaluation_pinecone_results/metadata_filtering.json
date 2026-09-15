@@ -1,0 +1,166 @@
+{
+  "summary": [
+    {
+      "Condition": "No Metadata Filter",
+      "Top-1": "100.0%",
+      "MRR": 1.0,
+      "Relevant Top-3": "100.0%",
+      "Avg Latency": "22.99 ms",
+      "Avg Search Space": "14 chunks (100%)"
+    },
+    {
+      "Condition": "With Relevant Metadata Filter",
+      "Top-1": "100.0%",
+      "MRR": 1.0,
+      "Relevant Top-3": "100.0%",
+      "Avg Latency": "22.09 ms",
+      "Avg Search Space": "~3.5 chunks (25% search space)"
+    }
+  ],
+  "details": [
+    {
+      "question": "How many casual leave days can I take in a year?",
+      "expected": "Leave Types And Eligibility",
+      "filter_applied": "{\"policy_category\": \"eligibility\", \"leave_type\": \"casual\"}",
+      "unfiltered_top1": "Leave Types And Eligibility",
+      "filtered_top1": "Leave Types And Eligibility",
+      "unfiltered_hit": 1,
+      "filtered_hit": 1,
+      "search_space_chunks": "1/14",
+      "unfiltered_lat_ms": 21.61,
+      "filtered_lat_ms": 22.8
+    },
+    {
+      "question": "Do I need a medical certificate for sick leave?",
+      "expected": "Leave Types And Eligibility",
+      "filter_applied": "{\"policy_category\": \"eligibility\", \"leave_type\": \"sick\"}",
+      "unfiltered_top1": "Leave Types And Eligibility",
+      "filtered_top1": "Leave Types And Eligibility",
+      "unfiltered_hit": 1,
+      "filtered_hit": 1,
+      "search_space_chunks": "1/14",
+      "unfiltered_lat_ms": 21.78,
+      "filtered_lat_ms": 21.15
+    },
+    {
+      "question": "When does a new employee become eligible for annual leave?",
+      "expected": "Leave Types And Eligibility",
+      "filter_applied": "{\"policy_category\": \"eligibility\", \"leave_type\": \"annual\"}",
+      "unfiltered_top1": "Leave Types And Eligibility",
+      "filtered_top1": "Leave Types And Eligibility",
+      "unfiltered_hit": 1,
+      "filtered_hit": 1,
+      "search_space_chunks": "1/14",
+      "unfiltered_lat_ms": 22.76,
+      "filtered_lat_ms": 24.07
+    },
+    {
+      "question": "How many days of annual leave am I entitled to per year?",
+      "expected": "Leave Types And Eligibility",
+      "filter_applied": "{\"policy_category\": \"eligibility\", \"leave_type\": \"annual\"}",
+      "unfiltered_top1": "Leave Types And Eligibility",
+      "filtered_top1": "Leave Types And Eligibility",
+      "unfiltered_hit": 1,
+      "filtered_hit": 1,
+      "search_space_chunks": "1/14",
+      "unfiltered_lat_ms": 27.28,
+      "filtered_lat_ms": 22.97
+    },
+    {
+      "question": "How many annual leave days carry forward to next year?",
+      "expected": "Carry Forward Rules",
+      "filter_applied": "{\"policy_category\": \"carry_forward\", \"leave_type\": \"annual\"}",
+      "unfiltered_top1": "Carry Forward Rules",
+      "filtered_top1": "Carry Forward Rules",
+      "unfiltered_hit": 1,
+      "filtered_hit": 1,
+      "search_space_chunks": "1/14",
+      "unfiltered_lat_ms": 27.3,
+      "filtered_lat_ms": 20.52
+    },
+    {
+      "question": "What happens to unused sick leave at year end?",
+      "expected": "Carry Forward Rules",
+      "filter_applied": "{\"policy_category\": \"carry_forward\", \"leave_type\": \"sick\"}",
+      "unfiltered_top1": "Carry Forward Rules",
+      "filtered_top1": "Carry Forward Rules",
+      "unfiltered_hit": 1,
+      "filtered_hit": 1,
+      "search_space_chunks": "1/14",
+      "unfiltered_lat_ms": 21.01,
+      "filtered_lat_ms": 22.13
+    },
+    {
+      "question": "Am I paid out for unused leave when I leave the company?",
+      "expected": "Carry Forward Rules",
+      "filter_applied": "{\"policy_category\": \"carry_forward\"}",
+      "unfiltered_top1": "Carry Forward Rules",
+      "filtered_top1": "Carry Forward Rules",
+      "unfiltered_hit": 1,
+      "filtered_hit": 1,
+      "search_space_chunks": "4/14",
+      "unfiltered_lat_ms": 21.29,
+      "filtered_lat_ms": 21.26
+    },
+    {
+      "question": "By when must carried-forward annual leave be used?",
+      "expected": "Carry Forward Rules",
+      "filter_applied": "{\"policy_category\": \"carry_forward\", \"leave_type\": \"annual\"}",
+      "unfiltered_top1": "Carry Forward Rules",
+      "filtered_top1": "Carry Forward Rules",
+      "unfiltered_hit": 1,
+      "filtered_hit": 1,
+      "search_space_chunks": "1/14",
+      "unfiltered_lat_ms": 24.05,
+      "filtered_lat_ms": 20.38
+    },
+    {
+      "question": "What public holidays does the company observe?",
+      "expected": "Holiday Calendar",
+      "filter_applied": "{\"policy_category\": \"holiday\"}",
+      "unfiltered_top1": "Holiday Calendar",
+      "filtered_top1": "Holiday Calendar",
+      "unfiltered_hit": 1,
+      "filtered_hit": 1,
+      "search_space_chunks": "2/14",
+      "unfiltered_lat_ms": 20.33,
+      "filtered_lat_ms": 21.1
+    },
+    {
+      "question": "Are weekends already accounted for in the holiday calendar?",
+      "expected": "Holiday Calendar",
+      "filter_applied": "{\"policy_category\": \"holiday\"}",
+      "unfiltered_top1": "Holiday Calendar",
+      "filtered_top1": "Holiday Calendar",
+      "unfiltered_hit": 1,
+      "filtered_hit": 1,
+      "search_space_chunks": "2/14",
+      "unfiltered_lat_ms": 23.46,
+      "filtered_lat_ms": 21.48
+    },
+    {
+      "question": "How long does a manager have to approve a leave request?",
+      "expected": "Approval Escalation",
+      "filter_applied": "{\"policy_category\": \"approval\"}",
+      "unfiltered_top1": "Approval Escalation",
+      "filtered_top1": "Approval Escalation",
+      "unfiltered_hit": 1,
+      "filtered_hit": 1,
+      "search_space_chunks": "4/14",
+      "unfiltered_lat_ms": 24.46,
+      "filtered_lat_ms": 23.05
+    },
+    {
+      "question": "Can I cancel an already-approved leave request?",
+      "expected": "Approval Escalation",
+      "filter_applied": "{\"policy_category\": \"approval\"}",
+      "unfiltered_top1": "Approval Escalation",
+      "filtered_top1": "Approval Escalation",
+      "unfiltered_hit": 1,
+      "filtered_hit": 1,
+      "search_space_chunks": "4/14",
+      "unfiltered_lat_ms": 20.53,
+      "filtered_lat_ms": 24.18
+    }
+  ]
+}

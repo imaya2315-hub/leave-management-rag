@@ -1,0 +1,210 @@
+{
+  "summary": [
+    {
+      "Pipeline": "FAISS Dense (Top-10) -> ms-marco Cross-Encoder -> Top-3",
+      "Top-1": "100.0%",
+      "MRR": 1.0,
+      "Relevant Top-3": "100.0%",
+      "Avg Latency": "2755.62 ms"
+    },
+    {
+      "Pipeline": "Pinecone Hybrid (Top-10) -> ms-marco Cross-Encoder -> Top-3",
+      "Top-1": "94.7%",
+      "MRR": 0.965,
+      "Relevant Top-3": "100.0%",
+      "Avg Latency": "451.28 ms"
+    }
+  ],
+  "details": [
+    {
+      "question": "How much short-notice personal leave am I allowed each year?",
+      "expected": "Leave Types And Eligibility",
+      "faiss_reranked_top1": "Leave Types And Eligibility",
+      "pinecone_reranked_top1": "Leave Types And Eligibility",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 43732.36,
+      "pinecone_lat_ms": 410.12
+    },
+    {
+      "question": "After joining the company, how long do I have to wait before I can use annual leave?",
+      "expected": "Leave Types And Eligibility",
+      "faiss_reranked_top1": "Leave Types And Eligibility",
+      "pinecone_reranked_top1": "Leave Types And Eligibility",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 434.56,
+      "pinecone_lat_ms": 356.67
+    },
+    {
+      "question": "Is sick leave available immediately when someone joins?",
+      "expected": "Leave Types And Eligibility",
+      "faiss_reranked_top1": "Leave Types And Eligibility",
+      "pinecone_reranked_top1": "Leave Types And Eligibility",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 366.14,
+      "pinecone_lat_ms": 338.1
+    },
+    {
+      "question": "If I suddenly need a day off for a personal matter, which leave category is intended for that?",
+      "expected": "Leave Types And Eligibility",
+      "faiss_reranked_top1": "Leave Types And Eligibility",
+      "pinecone_reranked_top1": "Leave Types And Eligibility",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 430.96,
+      "pinecone_lat_ms": 425.17
+    },
+    {
+      "question": "What happens to unused days at the end of the year if they are from the casual category?",
+      "expected": "Carry Forward Rules",
+      "faiss_reranked_top1": "Carry Forward Rules",
+      "pinecone_reranked_top1": "Carry Forward Rules",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 580.96,
+      "pinecone_lat_ms": 425.56
+    },
+    {
+      "question": "Is there a limit on how much annual leave can survive into the following year?",
+      "expected": "Carry Forward Rules",
+      "faiss_reranked_top1": "Carry Forward Rules",
+      "pinecone_reranked_top1": "Carry Forward Rules",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 372.9,
+      "pinecone_lat_ms": 446.96
+    },
+    {
+      "question": "How long do I have to use annual leave that was brought forward from last year?",
+      "expected": "Carry Forward Rules",
+      "faiss_reranked_top1": "Carry Forward Rules",
+      "pinecone_reranked_top1": "Carry Forward Rules",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 369.87,
+      "pinecone_lat_ms": 375.15
+    },
+    {
+      "question": "When an employee leaves the company, which unused leave can be paid out?",
+      "expected": "Carry Forward Rules",
+      "faiss_reranked_top1": "Carry Forward Rules",
+      "pinecone_reranked_top1": "Carry Forward Rules",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 433.65,
+      "pinecone_lat_ms": 421.08
+    },
+    {
+      "question": "Do weekends reduce the number of leave days that get deducted?",
+      "expected": "Holiday Calendar",
+      "faiss_reranked_top1": "Holiday Calendar",
+      "pinecone_reranked_top1": "Approval Escalation",
+      "faiss_hit": 1,
+      "pinecone_hit": 0,
+      "faiss_lat_ms": 427.66,
+      "pinecone_lat_ms": 375.31
+    },
+    {
+      "question": "If a company holiday falls during my planned leave, is that day treated like a leave day?",
+      "expected": "Holiday Calendar",
+      "faiss_reranked_top1": "Holiday Calendar",
+      "pinecone_reranked_top1": "Holiday Calendar",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 357.04,
+      "pinecone_lat_ms": 402.94
+    },
+    {
+      "question": "Where can I find the company's list of public holidays?",
+      "expected": "Holiday Calendar",
+      "faiss_reranked_top1": "Holiday Calendar",
+      "pinecone_reranked_top1": "Holiday Calendar",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 401.38,
+      "pinecone_lat_ms": 427.56
+    },
+    {
+      "question": "What happens when my leave request sits with my manager without a response?",
+      "expected": "Approval Escalation",
+      "faiss_reranked_top1": "Approval Escalation",
+      "pinecone_reranked_top1": "Approval Escalation",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 390.61,
+      "pinecone_lat_ms": 488.1
+    },
+    {
+      "question": "Who should I contact when a leave request stays pending for too long?",
+      "expected": "Approval Escalation",
+      "faiss_reranked_top1": "Approval Escalation",
+      "pinecone_reranked_top1": "Approval Escalation",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 409.2,
+      "pinecone_lat_ms": 425.48
+    },
+    {
+      "question": "Can a leave request be withdrawn after the manager has already approved it?",
+      "expected": "Approval Escalation",
+      "faiss_reranked_top1": "Approval Escalation",
+      "pinecone_reranked_top1": "Approval Escalation",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 547.45,
+      "pinecone_lat_ms": 462.6
+    },
+    {
+      "question": "What is the process when a manager does not act on a leave request?",
+      "expected": "Approval Escalation",
+      "faiss_reranked_top1": "Approval Escalation",
+      "pinecone_reranked_top1": "Approval Escalation",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 559.87,
+      "pinecone_lat_ms": 514.34
+    },
+    {
+      "question": "I have some days left over from this year. Which types disappear and which can move to next year?",
+      "expected": "Carry Forward Rules",
+      "faiss_reranked_top1": "Carry Forward Rules",
+      "pinecone_reranked_top1": "Carry Forward Rules",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 504.85,
+      "pinecone_lat_ms": 529.57
+    },
+    {
+      "question": "What is the company's rule for taking time off on Saturday or Sunday?",
+      "expected": "Holiday Calendar",
+      "faiss_reranked_top1": "Holiday Calendar",
+      "pinecone_reranked_top1": "Holiday Calendar",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 653.46,
+      "pinecone_lat_ms": 794.52
+    },
+    {
+      "question": "How much notice is normally expected before planned annual time off?",
+      "expected": "Leave Types And Eligibility",
+      "faiss_reranked_top1": "Leave Types And Eligibility",
+      "pinecone_reranked_top1": "Leave Types And Eligibility",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 897.33,
+      "pinecone_lat_ms": 476.7
+    },
+    {
+      "question": "What documentation might HR need after several consecutive sick days?",
+      "expected": "Leave Types And Eligibility",
+      "faiss_reranked_top1": "Leave Types And Eligibility",
+      "pinecone_reranked_top1": "Leave Types And Eligibility",
+      "faiss_hit": 1,
+      "pinecone_hit": 1,
+      "faiss_lat_ms": 486.48,
+      "pinecone_lat_ms": 478.47
+    }
+  ]
+}
