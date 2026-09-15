@@ -1,0 +1,3 @@
+﻿avg_query_latency_s,index_build_s,model,model_name,mrr,top1_pct
+0.0333,11.1833,MiniLM-L6-v2,sentence-transformers/all-MiniLM-L6-v2,0.925,90.0
+0.1318,446.0288,MPNet-base-v2,sentence-transformers/all-mpnet-base-v2,0.95,90.0

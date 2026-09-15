@@ -1,0 +1,20 @@
+[
+  {
+    "variant": "without_reranker",
+    "top1_pct": 90.0,
+    "mrr": 0.9,
+    "avg_latency_s": 0.0162
+  },
+  {
+    "variant": "with_reranker",
+    "top1_pct": 100.0,
+    "mrr": 1.0,
+    "avg_latency_s": 1.6253
+  },
+  {
+    "variant": "delta_with_minus_without",
+    "top1_pct": 10.0,
+    "mrr": 0.1,
+    "avg_latency_s": 1.6091
+  }
+]

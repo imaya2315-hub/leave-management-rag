@@ -44,6 +44,8 @@ import streamlit as st
 
 from rag_lab.agent import answer_policy_question
 
+
+
 try:
     from groq import Groq
 except ImportError:
@@ -120,7 +122,7 @@ TOOL_DEFINITIONS = [
         "function": {
             "name": "get_pending_leave_requests",
             "description": (
-                "Manager-only tool. Retrieve all currently pending leave requests for the team. "
+                "Manager/admin tool. Retrieve pending leave requests that the authenticated approver is allowed to review. "
                 "Use when a manager asks to show/list/view pending requests or what requests need action. "
                 "The result is displayed using employee names, leave types, and dates; backend IDs are internal."
             ),
@@ -186,7 +188,7 @@ TOOL_DEFINITIONS = [
         "function": {
             "name": "approve_leave",
             "description": (
-                "Manager-only. Approve one pending leave request using the employee's name. "
+                "Manager/admin approval. For employees, approve a request from the approver's own team. For manager requests, only an admin may approve. "
                 "Use start_date and/or leave_type when available to disambiguate multiple requests "
                 "for the same employee. Never ask the manager to know the backend leave ID."
             ),
@@ -217,7 +219,7 @@ TOOL_DEFINITIONS = [
         "function": {
             "name": "reject_leave",
             "description": (
-                "Manager-only. Reject one pending leave request using the employee's name. "
+                "Manager/admin rejection. For employees, reject a request from the approver's own team. For manager requests, only an admin may reject. "
                 "Use start_date and/or leave_type when available to disambiguate multiple requests. "
                 "Never ask the manager to know the backend leave ID."
             ),
@@ -256,15 +258,15 @@ Employee live data:
 - get_leave_balance = user's own current balances.
 - get_leave_history = user's own history/status.
 Manager live data:
-- get_pending_leave_requests = a manager asks to list/show/view pending requests.
+- get_pending_leave_requests = a manager or admin asks to list/show/view pending requests they are allowed to review.
 Actions:
 - apply_leave = user is actually asking the system to request time off, including natural paraphrases like
   "I need Monday off", "I'll be away next Tuesday", or "I'd like some time off".
 - cancel_leave = user wants to withdraw/remove/cancel their own request.
-- approve_leave / reject_leave = manager wants to act on a pending request.
+- approve_leave / reject_leave = manager or admin wants to act on a pending request. Employee requests are handled by their team manager; manager requests are handled by an admin.
 
 For manager approve/reject:
-- Identify the employee by name.
+- Identify the employee by name. Manager users can act only on employees in their own team; admins can act on manager leave requests.
 - If several pending requests match, the application will ask the manager for leave type or start date and continue the same manager action.
 - Extract start_date and leave_type only when the manager provides them.
 - Never invent a backend leave ID.
@@ -301,9 +303,10 @@ def choose_tool(message: str) -> tuple[str, dict]:
         raise RuntimeError("GROQ_API_KEY is not configured; LLM tool routing is unavailable.")
 
     response = client.chat.completions.create(
-        model="openai/gpt-oss-20b",
-        temperature=0,
-        max_tokens=250,
+        model="qwen/qwen3.8-27b",
+        temperature=0.2,
+        max_tokens=120,
+        top_p=0.8,
         tool_choice="required",
         tools=TOOL_DEFINITIONS,
         messages=[
@@ -382,10 +385,18 @@ def get_current_user(token: str) -> dict:
     return api_get("/employees/me/", token)
 
 
-def is_manager(token: str) -> bool:
-    """Return True only when the authenticated user has manager role."""
+def get_user_role(token: str) -> str:
+    """Return the authenticated user's role."""
     profile = get_current_user(token)
-    return str(profile.get("role", "")).strip().lower() == "manager"
+    return str(profile.get("role", "")).strip().lower()
+
+
+def is_manager_or_admin(token: str) -> bool:
+    return get_user_role(token) in {"manager", "admin"}
+
+
+def is_admin(token: str) -> bool:
+    return get_user_role(token) == "admin"
 
 
 
@@ -992,6 +1003,16 @@ def handle_action(
 
     start_date, end_date = date_range
 
+    # Admins do not have an approver in the current hierarchy. Prevent an
+    # admin leave request from entering a permanently Pending state.
+    if get_user_role(token) == "admin":
+        st.session_state.pending_action = pending
+        return (
+            "Admin leave requests are not supported in the current approval "
+            "workflow because admins have no higher-level approver. "
+            "Please handle admin leave through the designated HR/super-admin process."
+        )
+
     payload = {
         "leave_type": leave_type,
         "start_date": start_date.isoformat(),
@@ -1008,12 +1029,23 @@ def handle_action(
 
         st.session_state.pending_action = {}
 
+        role = get_user_role(token)
+        if role == "employee":
+            approval_text = "pending manager approval."
+        elif role == "manager":
+            approval_text = "pending admin approval."
+        elif role == "admin":
+            approval_text = ""
+        else:
+            approval_text = "pending approval."
+
+        suffix = f", {approval_text}" if approval_text else "."
+
         return (
             f"Submitted: {leave['leave_type']} leave "
             f"from {leave['start_date']} to "
             f"{leave['end_date']} — "
-            f"status **{leave['status']}**, "
-            "pending manager approval."
+            f"status **{leave['status']}**{suffix}"
         )
 
     except requests.HTTPError as exc:
@@ -1175,8 +1207,8 @@ def _tool_cancel_leave(leave_id, token: str) -> str:
 
 def _tool_manager_action(action: str, leave_id, token: str) -> str:
     try:
-        if not is_manager(token):
-            return f"Manager authorization is required to {action} leave requests."
+        if not is_manager_or_admin(token):
+            return f"Manager or admin authorization is required to {action} leave requests."
     except requests.HTTPError as exc:
         return f"Couldn't verify your manager authorization: {_extract_error_detail(exc)}"
     except Exception as exc:
@@ -1445,15 +1477,176 @@ def _employee_name_from_pending_leave(leave: dict) -> str:
 
 
 
+
+def _store_manager_context(pending: list[dict]) -> None:
+    """Keep the latest pending list so follow-up phrases like 'his last leave'
+    can be resolved without requiring another LLM tool call."""
+    st.session_state.manager_context = {
+        "pending": pending,
+    }
+
+
+def _get_manager_context_pending(token: str) -> list[dict]:
+    """Return cached pending requests, refreshing them when possible."""
+    try:
+        pending = _get_pending_for_manager(token)
+        _store_manager_context(pending)
+        return pending
+    except Exception:
+        return st.session_state.get("manager_context", {}).get("pending", [])
+
+
+def _infer_manager_followup(message: str, token: str) -> tuple[str, dict] | None:
+    """Deterministic fallback for common manager/admin approval follow-ups.
+
+    This is intentionally used only when the LLM fails to emit a tool call.
+    It never invents an employee or leave; it resolves against backend pending
+    requests already visible to the authenticated approver.
+    """
+    text = message.lower().strip()
+
+    action = None
+    if re.search(r"\b(?:approve|approved|accept|accepted)\b", text):
+        action = "approve"
+    elif re.search(r"\b(?:reject|rejected|deny|denied)\b", text):
+        action = "reject"
+
+    if action is None:
+        return None
+
+    # This fallback is for a manager/admin workflow, not employee leave application.
+    try:
+        role = get_user_role(token)
+    except Exception:
+        return None
+    if role not in {"manager", "admin"}:
+        return None
+
+    pending = _get_manager_context_pending(token)
+    if not pending:
+        return None
+
+    leave_type = None
+    for value in ("annual", "sick", "casual"):
+        if re.search(rf"\b{value}\b", text):
+            leave_type = value.capitalize()
+            break
+
+    # Resolve explicit employee names when present.
+    matching = pending
+    employee_words = re.findall(r"\b[a-zA-Z][a-zA-Z'-]*\b", message)
+    normalized_text = _normalize_person_name(message)
+    named = []
+    for leave in pending:
+        name = _normalize_person_name(_employee_name_from_leave(leave))
+        if name and (name in normalized_text or normalized_text.find(name.split()[0]) >= 0):
+            named.append(leave)
+    if named:
+        matching = named
+    else:
+        # Resolve pronouns such as "his" using the most recently displayed
+        # non-admin requester when the visible context contains one obvious person.
+        requester_groups: dict[str, list[dict]] = {}
+        for leave in pending:
+            name = _employee_name_from_leave(leave)
+            requester_groups.setdefault(name, []).append(leave)
+        # For "his/her" use the only requester group when unambiguous.
+        if re.search(r"\b(?:his|her|their)\b", text) and len(requester_groups) == 1:
+            matching = next(iter(requester_groups.values()))
+        elif re.search(r"\b(?:his|her|their)\b", text):
+            # Prefer the last requester from the displayed list. The pending
+            # endpoint is date/id ordered, so this corresponds to the last
+            # visible request and is deterministic.
+            last_name = _employee_name_from_leave(pending[-1])
+            matching = [x for x in pending if _employee_name_from_leave(x) == last_name]
+
+    if leave_type:
+        matching = [
+            leave for leave in matching
+            if str(leave.get("leave_type", "")).lower() == leave_type.lower()
+        ]
+
+    # "last leave" means the most recent start date for the resolved requester.
+    if re.search(r"\b(?:last|latest|most recent)\b", text) and matching:
+        try:
+            latest = max(
+                matching,
+                key=lambda x: (str(x.get("start_date", "")), int(x.get("id", 0))),
+            )
+            matching = [latest]
+        except Exception:
+            pass
+
+    if len(matching) == 1:
+        leave = matching[0]
+        return action, {
+            "employee_name": _employee_name_from_leave(leave),
+            "start_date": leave.get("start_date"),
+            "leave_type": leave.get("leave_type"),
+        }
+
+    if len(matching) > 1:
+        # Reuse the normal disambiguation flow with the best-known employee.
+        employee_name = _employee_name_from_leave(matching[0])
+        st.session_state.pending_action = {
+            "kind": "manager_decision",
+            "action": action,
+            "employee_name": employee_name,
+            "candidates": matching,
+        }
+        return action, None
+
+    return None
+
+
+def _answer_with_tool_fallback(exc: Exception, message: str, token: str | None) -> str | None:
+    """Handle the specific Groq 'no tool call' failure safely."""
+    if token is None:
+        return None
+    text = str(exc).lower()
+    if "did not call a tool" not in text and "tool_use_failed" not in text:
+        return None
+
+    try:
+        inferred = _infer_manager_followup(message, token)
+    except Exception:
+        inferred = None
+
+    if not inferred:
+        return None
+
+    action, args = inferred
+    if args is None:
+        candidates = st.session_state.get("pending_action", {}).get("candidates", [])
+        details = "\n".join(
+            f"{idx}. {_format_manager_pending_leave(x)}"
+            for idx, x in enumerate(candidates, start=1)
+        )
+        return (
+            "I found multiple matching requests. Please choose an option number.\n\n"
+            f"{details}"
+        )
+
+    return _tool_manager_name_action(
+        action,
+        args["employee_name"],
+        args.get("start_date"),
+        args.get("leave_type"),
+        token,
+    )
+
+
 def _tool_get_pending_leave_requests(token: str) -> str:
     try:
-        if not is_manager(token):
-            return "Only managers can view pending leave requests."
+        if not is_manager_or_admin(token):
+            return "Only managers and admins can view pending leave requests."
         pending = _get_pending_for_manager(token)
     except requests.HTTPError as exc:
         return f"Couldn't fetch pending leave requests: {_extract_error_detail(exc)}"
     except Exception as exc:
         return f"Couldn't fetch pending leave requests: {exc}"
+
+    _store_manager_context(pending)
 
     if not pending:
         return "There are no pending leave requests."
@@ -1471,8 +1664,8 @@ def _tool_manager_name_action(
     token: str,
 ) -> str:
     try:
-        if not is_manager(token):
-            return f"Manager authorization is required to {action} leave requests."
+        if not is_manager_or_admin(token):
+            return f"Manager or admin authorization is required to {action} leave requests."
     except requests.HTTPError as exc:
         return f"Couldn't verify your manager authorization: {_extract_error_detail(exc)}"
     except Exception as exc:
@@ -1543,49 +1736,142 @@ def _tool_manager_name_action(
 
 
 
-def execute_tool(tool_name: str, args: dict, original_message: str, token: str | None) -> str:
-    """Execute a tool selected by the LLM. The LLM itself never touches FastAPI."""
+def execute_tool(
+    tool_name: str,
+    args: dict,
+    original_message: str,
+    token: str | None,
+) -> str:
+    """
+    Execute a tool selected by the LLM.
+
+    The LLM only selects the tool and extracts arguments.
+    Actual backend operations remain deterministic and are
+    executed by application code.
+    """
+
     protected_tools = {
-        "get_leave_balance", "get_leave_history", "get_pending_leave_requests",
-        "apply_leave", "cancel_leave", "approve_leave", "reject_leave",
+        "get_leave_balance",
+        "get_leave_history",
+        "get_pending_leave_requests",
+        "apply_leave",
+        "cancel_leave",
+        "approve_leave",
+        "reject_leave",
     }
 
+    # ------------------------------------------------------------
+    # Authentication guard
+    # ------------------------------------------------------------
     if tool_name in protected_tools and token is None:
-        return "Please log in first (sidebar) — this needs your account's live data."
+        return (
+            "Please log in first (sidebar) — "
+            "this needs your account's live data."
+        )
 
+    # ------------------------------------------------------------
+    # POLICY RAG
+    # ------------------------------------------------------------
     if tool_name == "answer_policy_question":
         answer, sources = answer_policy_question(original_message)
+
+        # Sources returned by RAG are dictionaries/chunks.
+        # The UI only needs their document titles.
         if sources:
-            answer += f"\n\n*Sources: {', '.join(sources)}*"
+            source_titles = []
+            seen_titles = set()
+
+            for source in sources:
+                if isinstance(source, dict):
+                    title = source.get("title")
+                else:
+                    title = str(source)
+
+                if title:
+                    title = str(title).strip()
+
+                    if title and title not in seen_titles:
+                        seen_titles.add(title)
+                        source_titles.append(title)
+
+            if source_titles:
+                answer = (
+                    f"{answer}\n\n"
+                    f"*Sources: {', '.join(source_titles)}*"
+                )
+
         return answer
 
+    # ------------------------------------------------------------
+    # LIVE EMPLOYEE BALANCE
+    # ------------------------------------------------------------
     if tool_name == "get_leave_balance":
-        profile = api_get("/employees/me/", token)
+        profile = api_get(
+            "/employees/me/",
+            token,
+        )
+
         return (
-            f"Your current balances — Annual: {profile['annual_leave_balance']} days, "
+            "Your current balances — "
+            f"Annual: {profile['annual_leave_balance']} days, "
             f"Sick: {profile['sick_leave_balance']} days, "
             f"Casual: {profile['casual_leave_balance']} days."
         )
 
+    # ------------------------------------------------------------
+    # LIVE EMPLOYEE HISTORY
+    # ------------------------------------------------------------
     if tool_name == "get_leave_history":
-        history = api_get("/leaves/me/", token)
+        history = api_get(
+            "/leaves/me/",
+            token,
+        )
+
         if not history:
             return "You have no leave requests on record yet."
+
         lines = [
-            f"- {leave['leave_type']} leave, {leave['start_date']} to {leave['end_date']} — {leave['status']}"
+            (
+                f"- {leave['leave_type']} leave, "
+                f"{leave['start_date']} to {leave['end_date']} "
+                f"— {leave['status']}"
+            )
             for leave in history
         ]
-        return "Your leave history:\n" + "\n".join(lines)
 
+        return (
+            "Your leave history:\n"
+            + "\n".join(lines)
+        )
+
+    # ------------------------------------------------------------
+    # MANAGER / ADMIN PENDING REQUESTS
+    # ------------------------------------------------------------
     if tool_name == "get_pending_leave_requests":
         return _tool_get_pending_leave_requests(token)
 
+    # ------------------------------------------------------------
+    # APPLY LEAVE
+    # ------------------------------------------------------------
     if tool_name == "apply_leave":
-        return _tool_apply_leave(args, original_message, token)
+        return _tool_apply_leave(
+            args,
+            original_message,
+            token,
+        )
 
+    # ------------------------------------------------------------
+    # CANCEL LEAVE
+    # ------------------------------------------------------------
     if tool_name == "cancel_leave":
-        return _tool_cancel_leave(args.get("leave_id"), token)
+        return _tool_cancel_leave(
+            args.get("leave_id"),
+            token,
+        )
 
+    # ------------------------------------------------------------
+    # APPROVE LEAVE
+    # ------------------------------------------------------------
     if tool_name == "approve_leave":
         return _tool_manager_name_action(
             "approve",
@@ -1595,6 +1881,9 @@ def execute_tool(tool_name: str, args: dict, original_message: str, token: str |
             token,
         )
 
+    # ------------------------------------------------------------
+    # REJECT LEAVE
+    # ------------------------------------------------------------
     if tool_name == "reject_leave":
         return _tool_manager_name_action(
             "reject",
@@ -1604,7 +1893,12 @@ def execute_tool(tool_name: str, args: dict, original_message: str, token: str |
             token,
         )
 
-    raise RuntimeError(f"Unknown tool selected by the LLM: {tool_name}")
+    # ------------------------------------------------------------
+    # Unknown tool
+    # ------------------------------------------------------------
+    raise RuntimeError(
+        f"Unknown tool selected by the LLM: {tool_name}"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -1644,6 +1938,8 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 if "pending_action" not in st.session_state:
     st.session_state.pending_action = {}
+if "manager_context" not in st.session_state:
+    st.session_state.manager_context = {}
 
 with st.sidebar:
     st.subheader("Login")
@@ -1663,6 +1959,7 @@ with st.sidebar:
             st.session_state.token = None
             st.session_state.messages = []
             st.session_state.pending_action = {}
+            st.session_state.manager_context = {}
 
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
@@ -1695,7 +1992,8 @@ if prompt:
     except requests.HTTPError as exc:
         answer = f"The backend request failed: {_extract_error_detail(exc)}"
     except Exception as exc:
-        answer = f"I couldn't route that request safely: {exc}"
+        fallback = _answer_with_tool_fallback(exc, prompt, st.session_state.token)
+        answer = fallback if fallback is not None else f"I couldn't route that request safely: {exc}"
 
     st.session_state.messages.append({"role": "assistant", "content": answer})
     with st.chat_message("assistant"):

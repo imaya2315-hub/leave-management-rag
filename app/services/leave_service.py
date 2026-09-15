@@ -48,10 +48,21 @@ def _validate_leave(employee, leave_type: str, start_date: date, end_date: date)
 
 def apply_leave(db: Session, employee, leave_request: LeaveCreate):
     """
-    Creates a Pending leave request for the given (already-authenticated)
-    employee. Balance is only checked here for early feedback — it isn't
-    deducted until a manager approves it.
+    Creates a Pending leave request for the authenticated employee/manager.
+
+    Employees are reviewed by their team manager. Managers are reviewed by
+    an admin. Admin leave is not accepted through this workflow because
+    there is currently no higher-level approver.
     """
+    if str(getattr(employee, "role", "")).strip().lower() == "admin":
+        raise HTTPException(
+            status_code=403,
+            detail=(
+                "Admin leave requests cannot be submitted through the current "
+                "approval workflow because admins have no higher-level approver."
+            ),
+        )
+
     _validate_leave(employee, leave_request.leave_type, leave_request.start_date, leave_request.end_date)
 
     # Prevent accidental duplicate pending requests. This is especially

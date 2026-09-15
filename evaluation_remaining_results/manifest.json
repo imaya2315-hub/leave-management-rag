@@ -1,0 +1,21 @@
+{
+  "skipped_first": 5,
+  "cases_used": [
+    "Q06",
+    "Q07",
+    "Q08",
+    "Q09",
+    "Q10",
+    "Q11",
+    "Q12",
+    "Q13",
+    "Q14",
+    "Q15"
+  ],
+  "fixed_chunk_size": 80,
+  "fixed_chunk_overlap": 10,
+  "top_k": 10,
+  "top_n": 3,
+  "groq_generation_calls": 0,
+  "llm_cost": "reused from previous evaluation; not rerun"
+}

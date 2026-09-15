@@ -1,0 +1,3 @@
+﻿model,model_name,chunk_config,accuracy_percent,avg_latency_sec,avg_input_tokens,avg_output_tokens,avg_cost_per_question,total_cost,input_price_per_million,output_price_per_million
+Model A,openai/gpt-oss-120b,medium_o20,100,2.6172,643.4,83.6,0.0,0.0,0.0,0.0
+Model B,qwen/qwen3.8-27b,medium_o20,100,2.0354,602,21,0.0,0.0,0.0,0.0

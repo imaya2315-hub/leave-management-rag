@@ -11,6 +11,15 @@ separately (see rag_lab/agent.py).
 Prefers Groq (GROQ_API_KEY), then Anthropic (ANTHROPIC_API_KEY), then
 falls back to a short extractive answer, so the whole lab runs end to
 end with zero API keys.
+9. If the employee asks multiple separate questions:
+   - answer EVERY question
+   - answer them in the same order as asked
+   - use a short numbered list
+   - do not skip a question
+   - for an unsupported question, use the exact
+     "The provided policy context does not contain enough information
+     to answer that question."
+     response for that item
 """
 import os
 import re

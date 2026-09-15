@@ -14,13 +14,14 @@ class EmployeeBase(BaseModel):
 
 class EmployeeCreate(EmployeeBase):
     password: str
-    role: Literal["employee", "manager"] = "employee"
+    role: Literal["employee", "manager", "admin"] = "employee"
 
 
 class Employee(EmployeeBase):
     id: int
     is_active: bool
     role: str
+    team_id: int | None = None
     annual_leave_balance: int
     sick_leave_balance: int
     casual_leave_balance: int
@@ -33,6 +34,7 @@ class EmployeeSummary(EmployeeBase):
     id: int
     is_active: bool
     role: str
+    team_id: int | None = None
     annual_leave_balance: int
     sick_leave_balance: int
     casual_leave_balance: int

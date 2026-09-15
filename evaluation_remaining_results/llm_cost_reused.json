@@ -1,0 +1,24 @@
+{
+  "status": "reuse_previous_results_no_api_call",
+  "note": "LLM quality/token results are already covered. No new Groq generation request is made here.",
+  "previous_results": [
+    {
+      "model": "Model A",
+      "accuracy_pct": 100.0,
+      "avg_latency_s": 2.6172,
+      "avg_input_tokens": 643.4,
+      "avg_output_tokens": 83.6,
+      "reported_cost_per_question": 0.0,
+      "reported_cost_is_placeholder": true
+    },
+    {
+      "model": "Model B",
+      "accuracy_pct": 100.0,
+      "avg_latency_s": 2.0354,
+      "avg_input_tokens": 602.0,
+      "avg_output_tokens": 21.0,
+      "reported_cost_per_question": 0.0,
+      "reported_cost_is_placeholder": true
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "summary": [
+    {
+      "model": "MiniLM-L6-v2",
+      "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+      "top1_pct": 90.0,
+      "mrr": 0.925,
+      "avg_query_latency_s": 0.0333,
+      "index_build_s": 11.1833
+    },
+    {
+      "model": "MPNet-base-v2",
+      "model_name": "sentence-transformers/all-mpnet-base-v2",
+      "top1_pct": 90.0,
+      "mrr": 0.95,
+      "avg_query_latency_s": 0.1318,
+      "index_build_s": 446.0288
+    }
+  ],
+  "detail": [
+    {
+      "model": "MiniLM-L6-v2",
+      "id": "Q06",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.10096720000001369
+    },
+    {
+      "model": "MiniLM-L6-v2",
+      "id": "Q07",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.03060430000004999
+    },
+    {
+      "model": "MiniLM-L6-v2",
+      "id": "Q08",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.02118230000087351
+    },
+    {
+      "model": "MiniLM-L6-v2",
+      "id": "Q09",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.019680700001117657
+    },
+    {
+      "model": "MiniLM-L6-v2",
+      "id": "Q10",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.021875200000067707
+    },
+    {
+      "model": "MiniLM-L6-v2",
+      "id": "Q11",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.031757299999298993
+    },
+    {
+      "model": "MiniLM-L6-v2",
+      "id": "Q12",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.022833799999716575
+    },
+    {
+      "model": "MiniLM-L6-v2",
+      "id": "Q13",
+      "top1": false,
+      "mrr": 0.25,
+      "latency_s": 0.04290239999863843
+    },
+    {
+      "model": "MiniLM-L6-v2",
+      "id": "Q14",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.01947470000050089
+    },
+    {
+      "model": "MiniLM-L6-v2",
+      "id": "Q15",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.021934400001555332
+    },
+    {
+      "model": "MPNet-base-v2",
+      "id": "Q06",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.14732769999864104
+    },
+    {
+      "model": "MPNet-base-v2",
+      "id": "Q07",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.15027079999890702
+    },
+    {
+      "model": "MPNet-base-v2",
+      "id": "Q08",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.14519109999855573
+    },
+    {
+      "model": "MPNet-base-v2",
+      "id": "Q09",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.15046040000015637
+    },
+    {
+      "model": "MPNet-base-v2",
+      "id": "Q10",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.1621915000014269
+    },
+    {
+      "model": "MPNet-base-v2",
+      "id": "Q11",
+      "top1": false,
+      "mrr": 0.5,
+      "latency_s": 0.11199160000069242
+    },
+    {
+      "model": "MPNet-base-v2",
+      "id": "Q12",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.10200720000102592
+    },
+    {
+      "model": "MPNet-base-v2",
+      "id": "Q13",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.10135079999963637
+    },
+    {
+      "model": "MPNet-base-v2",
+      "id": "Q14",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.10439109999970242
+    },
+    {
+      "model": "MPNet-base-v2",
+      "id": "Q15",
+      "top1": true,
+      "mrr": 1.0,
+      "latency_s": 0.142847700000857
+    }
+  ]
+}

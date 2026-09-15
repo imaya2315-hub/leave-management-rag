@@ -1,0 +1,4 @@
+﻿all_intents_recovered_pct,avg_latency_s,expected_titles_recovered_pct,mode
+66.67,0.0189,83.33,without_decomposition
+66.67,0.041,83.33,with_deterministic_decomposition
+0.0,0.0221,0.0,delta_with_minus_without

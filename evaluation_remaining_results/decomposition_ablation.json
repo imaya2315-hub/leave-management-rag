@@ -1,0 +1,20 @@
+[
+  {
+    "mode": "without_decomposition",
+    "all_intents_recovered_pct": 66.67,
+    "expected_titles_recovered_pct": 83.33,
+    "avg_latency_s": 0.0189
+  },
+  {
+    "mode": "with_deterministic_decomposition",
+    "all_intents_recovered_pct": 66.67,
+    "expected_titles_recovered_pct": 83.33,
+    "avg_latency_s": 0.041
+  },
+  {
+    "mode": "delta_with_minus_without",
+    "all_intents_recovered_pct": 0.0,
+    "expected_titles_recovered_pct": 0.0,
+    "avg_latency_s": 0.0221
+  }
+]

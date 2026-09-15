@@ -1,0 +1,4 @@
+﻿avg_latency_s,mrr,top1_pct,variant
+0.0162,0.9,90.0,without_reranker
+1.6253,1.0,100.0,with_reranker
+1.6091,0.1,10.0,delta_with_minus_without
