@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-09-15 11:10:40",
+  "timestamp": "2026-09-15 12:37:04",
   "configuration": {
     "chunk_size": 80,
     "chunk_overlap": 20,
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
     "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
-    "pinecone_is_live": false,
+    "pinecone_is_live": true,
     "namespaces_used": false
   },
   "experiment_1_faiss_vs_pinecone": [
@@ -15,8 +15,8 @@
       "top1": 100.0,
       "mrr": 1.0,
       "relevant_top3": 100.0,
-      "avg_latency_ms": 17.47,
-      "setup_time_s": 0.5842
+      "avg_latency_ms": 19.01,
+      "setup_time_s": 0.5781
     },
     {
       "dataset": "12-Question Baseline",
@@ -24,8 +24,8 @@
       "top1": 100.0,
       "mrr": 1.0,
       "relevant_top3": 100.0,
-      "avg_latency_ms": 16.15,
-      "setup_time_s": 0.0019
+      "avg_latency_ms": 872.37,
+      "setup_time_s": 8.7449
     },
     {
       "dataset": "19-Question Hard Set",
@@ -33,8 +33,8 @@
       "top1": 78.9,
       "mrr": 0.886,
       "relevant_top3": 100.0,
-      "avg_latency_ms": 21.44,
-      "setup_time_s": 0.5842
+      "avg_latency_ms": 16.19,
+      "setup_time_s": 0.5781
     },
     {
       "dataset": "19-Question Hard Set",
@@ -42,8 +42,8 @@
       "top1": 78.9,
       "mrr": 0.886,
       "relevant_top3": 100.0,
-      "avg_latency_ms": 17.44,
-      "setup_time_s": 0.0019
+      "avg_latency_ms": 797.9,
+      "setup_time_s": 8.7449
     },
     {
       "dataset": "Q06-Q15 Set",
@@ -51,8 +51,8 @@
       "top1": 90.0,
       "mrr": 0.95,
       "relevant_top3": 100.0,
-      "avg_latency_ms": 15.12,
-      "setup_time_s": 0.5842
+      "avg_latency_ms": 19.56,
+      "setup_time_s": 0.5781
     },
     {
       "dataset": "Q06-Q15 Set",
@@ -60,8 +60,8 @@
       "top1": 90.0,
       "mrr": 0.95,
       "relevant_top3": 100.0,
-      "avg_latency_ms": 15.89,
-      "setup_time_s": 0.0019
+      "avg_latency_ms": 723.41,
+      "setup_time_s": 8.7449
     }
   ],
   "experiment_2_hybrid_alpha_sweep": [
@@ -71,7 +71,7 @@
       "Top-1": "78.9%",
       "MRR": 0.886,
       "Relevant Top-3": "100.0%",
-      "Latency": "25.61 ms"
+      "Latency": "893.21 ms"
     },
     {
       "Retrieval Mode": "Hybrid",
@@ -79,7 +79,7 @@
       "Top-1": "94.7%",
       "MRR": 0.965,
       "Relevant Top-3": "100.0%",
-      "Latency": "32.87 ms"
+      "Latency": "564.47 ms"
     },
     {
       "Retrieval Mode": "Hybrid",
@@ -87,7 +87,7 @@
       "Top-1": "89.5%",
       "MRR": 0.939,
       "Relevant Top-3": "100.0%",
-      "Latency": "23.91 ms"
+      "Latency": "1017.36 ms"
     },
     {
       "Retrieval Mode": "Hybrid",
@@ -95,7 +95,7 @@
       "Top-1": "89.5%",
       "MRR": 0.939,
       "Relevant Top-3": "100.0%",
-      "Latency": "24.18 ms"
+      "Latency": "656.76 ms"
     },
     {
       "Retrieval Mode": "Sparse",
@@ -103,7 +103,7 @@
       "Top-1": "89.5%",
       "MRR": 0.939,
       "Relevant Top-3": "100.0%",
-      "Latency": "26.43 ms"
+      "Latency": "605.16 ms"
     }
   ],
   "experiment_3_metadata_filtering": [
@@ -112,7 +112,7 @@
       "Top-1": "100.0%",
       "MRR": 1.0,
       "Relevant Top-3": "100.0%",
-      "Avg Latency": "22.99 ms",
+      "Avg Latency": "483.96 ms",
       "Avg Search Space": "14 chunks (100%)"
     },
     {
@@ -120,7 +120,7 @@
       "Top-1": "100.0%",
       "MRR": 1.0,
       "Relevant Top-3": "100.0%",
-      "Avg Latency": "22.09 ms",
+      "Avg Latency": "711.39 ms",
       "Avg Search Space": "~3.5 chunks (25% search space)"
     }
   ],
@@ -130,14 +130,14 @@
       "Top-1": "100.0%",
       "MRR": 1.0,
       "Relevant Top-3": "100.0%",
-      "Avg Latency": "2755.62 ms"
+      "Avg Latency": "2100.36 ms"
     },
     {
       "Pipeline": "Pinecone Hybrid (Top-10) -> ms-marco Cross-Encoder -> Top-3",
       "Top-1": "94.7%",
       "MRR": 0.965,
       "Relevant Top-3": "100.0%",
-      "Avg Latency": "451.28 ms"
+      "Avg Latency": "1240.40 ms"
     }
   ]
 }

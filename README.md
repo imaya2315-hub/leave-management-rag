@@ -1109,35 +1109,36 @@ All retrieval benchmarks were executed strictly **without calling LLMs** (preser
 *Corpus, 80/20 chunks, MiniLM embeddings, and Top-K=5 kept identical.*
 | Dataset | Backend | Top-1 | MRR | Relevant Top-3 | Query Latency | Setup Time |
 |---|---|---:|---:|---:|---:|---:|
-| **12-Question Baseline** | FAISS (Dense) | 100.0% | 1.000 | 100.0% | 17.5 ms | 0.584 s |
-| **12-Question Baseline** | Pinecone (Dense) | 100.0% | 1.000 | 100.0% | 16.2 ms | 0.002 s |
-| **19-Question Hard Set** | FAISS (Dense) | 78.9% | 0.886 | 100.0% | 21.4 ms | 0.584 s |
-| **19-Question Hard Set** | Pinecone (Dense) | 78.9% | 0.886 | 100.0% | 17.4 ms | 0.002 s |
-| **Q06-Q15 Set** | FAISS (Dense) | 90.0% | 0.950 | 100.0% | 15.1 ms | 0.584 s |
-| **Q06-Q15 Set** | Pinecone (Dense) | 90.0% | 0.950 | 100.0% | 15.9 ms | 0.002 s |
+| **12-Question Baseline** | FAISS (Dense) | 100.0% | 1.000 | 100.0% | 19.0 ms | 0.578 s |
+| **12-Question Baseline** | Live Pinecone (Dense) | 100.0% | 1.000 | 100.0% | 872.4 ms | 8.745 s |
+| **19-Question Hard Set** | FAISS (Dense) | 78.9% | 0.886 | 100.0% | 16.2 ms | 0.578 s |
+| **19-Question Hard Set** | Live Pinecone (Dense) | 78.9% | 0.886 | 100.0% | 797.9 ms | 8.745 s |
+| **Q06-Q15 Set** | FAISS (Dense) | 90.0% | 0.950 | 100.0% | 19.6 ms | 0.578 s |
+| **Q06-Q15 Set** | Live Pinecone (Dense) | 90.0% | 0.950 | 100.0% | 723.4 ms | 8.745 s |
 
-*Conclusion: With identical embeddings, FAISS and Pinecone dense retrieval yield identical accuracy, isolating backend mechanics.*
+*Conclusion: With identical embeddings, FAISS and Pinecone dense retrieval yield identical accuracy, isolating backend mechanics. Live cloud queries reflect real network latency over HTTPS to AWS us-east-1.*
 
 ### Experiment 2: Hybrid Alpha Sweep (Pinecone on 19 Hard Questions)
 | Retrieval Mode | Alpha | Top-1 | MRR | Relevant Top-3 | Query Latency |
 |---|---:|---:|---:|---:|---:|
-| Dense | 1.00 | 78.9% | 0.886 | 100.0% | 25.6 ms |
-| **Hybrid (Optimal)** | **0.75** | **94.7%** | **0.965** | **100.0%** | **32.9 ms** |
-| Hybrid | 0.50 | 89.5% | 0.939 | 100.0% | 23.9 ms |
-| Hybrid | 0.25 | 89.5% | 0.939 | 100.0% | 24.2 ms |
-| Sparse | 0.00 | 89.5% | 0.939 | 100.0% | 26.4 ms |
+| Dense | 1.00 | 78.9% | 0.886 | 100.0% | 893.2 ms |
+| **Hybrid (Optimal)** | **0.75** | **94.7%** | **0.965** | **100.0%** | **564.5 ms** |
+| Hybrid | 0.50 | 89.5% | 0.939 | 100.0% | 1017.4 ms |
+| Hybrid | 0.25 | 89.5% | 0.939 | 100.0% | 656.8 ms |
+| Sparse | 0.00 | 89.5% | 0.939 | 100.0% | 605.2 ms |
 
 ### Experiment 3: Metadata Filtering Impact
 | Condition | Top-1 | MRR | Relevant Top-3 | Avg Latency | Candidate Search Space |
 |---|---:|---:|---:|---:|---|
-| **No Metadata Filter** | 100.0% | 1.000 | 100.0% | 23.0 ms | 14 chunks (100%) |
-| **With Relevant Filter** | 100.0% | 1.000 | 100.0% | 22.1 ms | ~3.5 chunks (25%) |
+| **No Metadata Filter** | 100.0% | 1.000 | 100.0% | 484.0 ms | 14 chunks (100%) |
+| **With Relevant Filter** | 100.0% | 1.000 | 100.0% | 711.4 ms | ~3.5 chunks (25%) |
 
 ### Experiment 4: Full Pipeline with Cross-Encoder Reranking
 | Pipeline | Top-1 | MRR | Relevant Top-3 | Avg Latency |
 |---|---:|---:|---:|---:|
-| FAISS Dense (Top-10) $\rightarrow$ ms-marco Cross-Encoder $\rightarrow$ Top-3 | 100.0% | 1.000 | 100.0% | 2755.6 ms |
-| Pinecone Hybrid (Top-10) $\rightarrow$ ms-marco Cross-Encoder $\rightarrow$ Top-3 | 94.7% | 0.965 | 100.0% | 451.3 ms |
+| FAISS Dense (Top-10) $\rightarrow$ ms-marco Cross-Encoder $\rightarrow$ Top-3 | 100.0% | 1.000 | 100.0% | 2100.4 ms |
+| Pinecone Hybrid (Top-10) $\rightarrow$ ms-marco Cross-Encoder $\rightarrow$ Top-3 | 94.7% | 0.965 | 100.0% | 1240.4 ms |
+
 
 ## 7. Extended Architecture Diagram
 

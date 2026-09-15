@@ -159,9 +159,14 @@ class BenchmarkSuite:
             self.chunks, self.dense_embeddings, self.sparse_encoder
         )
         self.pinecone_setup_time = time.perf_counter() - t0
+        if self.pinecone_store.is_live:
+            print("[Setup] Waiting 3s for live Pinecone serverless indexing...")
+            time.sleep(3)
+
         self.pinecone_retriever = PineconeRetriever(self.pinecone_store, self.sparse_encoder)
 
         print(f"[Setup] Pinecone ready (is_live={self.pinecone_store.is_live}, upserted={self.upserted_count})")
+
 
     # --------------------------------------------------------------------------
     # Experiment 1: FAISS vs Pinecone Dense

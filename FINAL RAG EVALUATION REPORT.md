@@ -377,29 +377,30 @@ This section documents the quantitative evaluation extending the RAG architectur
 
 | Dataset | Backend | Top-1 Accuracy | MRR | Relevant Top-3 | Query Latency | Index Setup Time |
 |---|---|---:|---:|---:|---:|---:|
-| **12-Question Baseline** | FAISS (Dense) | 100.0% | 1.000 | 100.0% | 17.5 ms | 0.584 s |
-| **12-Question Baseline** | Pinecone (Dense) | 100.0% | 1.000 | 100.0% | 16.2 ms | 0.002 s |
-| **19-Question Hard Set** | FAISS (Dense) | 78.9% | 0.886 | 100.0% | 21.4 ms | 0.584 s |
-| **19-Question Hard Set** | Pinecone (Dense) | 78.9% | 0.886 | 100.0% | 17.4 ms | 0.002 s |
-| **Q06-Q15 Set** | FAISS (Dense) | 90.0% | 0.950 | 100.0% | 15.1 ms | 0.584 s |
-| **Q06-Q15 Set** | Pinecone (Dense) | 90.0% | 0.950 | 100.0% | 15.9 ms | 0.002 s |
+| **12-Question Baseline** | FAISS (Dense) | 100.0% | 1.000 | 100.0% | 19.0 ms | 0.578 s |
+| **12-Question Baseline** | Live Pinecone (Dense) | 100.0% | 1.000 | 100.0% | 872.4 ms | 8.745 s |
+| **19-Question Hard Set** | FAISS (Dense) | 78.9% | 0.886 | 100.0% | 16.2 ms | 0.578 s |
+| **19-Question Hard Set** | Live Pinecone (Dense) | 78.9% | 0.886 | 100.0% | 797.9 ms | 8.745 s |
+| **Q06-Q15 Set** | FAISS (Dense) | 90.0% | 0.950 | 100.0% | 19.6 ms | 0.578 s |
+| **Q06-Q15 Set** | Live Pinecone (Dense) | 90.0% | 0.950 | 100.0% | 723.4 ms | 8.745 s |
 
 **Findings**:
 - Exact parity was confirmed across all three evaluation sets. Top-1, MRR, and Relevant Top-3 matched 1:1 between FAISS and Pinecone.
 - This confirms that transitioning to Pinecone preserves the verified ranking quality of the baseline system while adding cloud-native lifecycle management.
+- Live cloud queries incur expected HTTPS round-trip network latency to AWS us-east-1 (~500–900 ms) compared to in-process memory lookups.
 
 ## 15.2 Experiment 2: Dense vs. Sparse vs. Hybrid Retrieval (Alpha Sweep)
 
-**Setup**: Evaluated on the 19-question hard retrieval set using Pinecone with Okapi BM25 (`BM25SparseEncoder`) and `all-MiniLM-L6-v2`. The convex weighting parameter $\alpha \in [0.0, 1.0]$ scales dense vectors by $\alpha$ and sparse vectors by $(1 - \alpha)$, combined via dot product:
+**Setup**: Evaluated on the 19-question hard retrieval set using live Pinecone with Okapi BM25 (`BM25SparseEncoder`) and `all-MiniLM-L6-v2`. The convex weighting parameter $\alpha \in [0.0, 1.0]$ scales dense vectors by $\alpha$ and sparse vectors by $(1 - \alpha)$, combined via dot product:
 $$\text{Final Score} = (\alpha \times \text{Dense Score}) + ((1 - \alpha) \times \text{Sparse Score})$$
 
 | Retrieval Mode | Alpha ($\alpha$) | Top-1 Accuracy | MRR | Relevant Top-3 | Avg Latency |
 |---|---:|---:|---:|---:|---:|
-| Dense Only | 1.00 | 78.9% (15/19) | 0.886 | 100.0% | 25.61 ms |
-| **Hybrid (Optimal)** | **0.75** | **94.7% (18/19)** | **0.965** | **100.0%** | **32.87 ms** |
-| Hybrid | 0.50 | 89.5% (17/19) | 0.939 | 100.0% | 23.91 ms |
-| Hybrid | 0.25 | 89.5% (17/19) | 0.939 | 100.0% | 24.18 ms |
-| Sparse Only (BM25) | 0.00 | 89.5% (17/19) | 0.939 | 100.0% | 26.43 ms |
+| Dense Only | 1.00 | 78.9% (15/19) | 0.886 | 100.0% | 893.2 ms |
+| **Hybrid (Optimal)** | **0.75** | **94.7% (18/19)** | **0.965** | **100.0%** | **564.5 ms** |
+| Hybrid | 0.50 | 89.5% (17/19) | 0.939 | 100.0% | 1017.4 ms |
+| Hybrid | 0.25 | 89.5% (17/19) | 0.939 | 100.0% | 656.8 ms |
+| Sparse Only (BM25) | 0.00 | 89.5% (17/19) | 0.939 | 100.0% | 605.2 ms |
 
 **Findings**:
 - **Hybrid retrieval at $\alpha = 0.75$ achieved the highest retrieval accuracy**: Top-1 increased from **78.9% to 94.7% (+15.8 percentage points)** and MRR increased from **0.886 to 0.965 (+0.079)**.
@@ -412,13 +413,12 @@ $$\text{Final Score} = (\alpha \times \text{Dense Score}) + ((1 - \alpha) \times
 
 | Condition | Top-1 Accuracy | MRR | Relevant Top-3 | Avg Latency | Candidate Search Space |
 |---|---:|---:|---:|---:|---|
-| **No Metadata Filter** | 100.0% | 1.000 | 100.0% | 22.99 ms | 14 chunks (100%) |
-| **With Relevant Metadata Filter** | 100.0% | 1.000 | 100.0% | 22.09 ms | ~3.5 chunks (25%) |
+| **No Metadata Filter** | 100.0% | 1.000 | 100.0% | 484.0 ms | 14 chunks (100%) |
+| **With Relevant Metadata Filter** | 100.0% | 1.000 | 100.0% | 711.4 ms | ~3.5 chunks (25%) |
 
 **Findings**:
 - Metadata filtering pruned **75% of candidate search space** before scoring (reducing candidate pool from 14 chunks to ~3.5 chunks).
 - Eliminated cross-document false positive risks with zero degradation in accuracy (100% Top-1 and 1.000 MRR).
-- Query latency dropped slightly from 22.99 ms to 22.09 ms due to reduced candidate comparisons.
 
 ## 15.4 Experiment 4: Full Pipeline Integration with Cross-Encoder Reranking
 
@@ -428,8 +428,9 @@ $$\text{Final Score} = (\alpha \times \text{Dense Score}) + ((1 - \alpha) \times
 
 | Pipeline | Top-1 Accuracy | MRR | Relevant Top-3 | Avg Latency |
 |---|---:|---:|---:|---:|
-| FAISS Dense (Top-10) $\rightarrow$ ms-marco Cross-Encoder $\rightarrow$ Top-3 | 100.0% (19/19) | 1.000 | 100.0% | 2755.62 ms |
-| Pinecone Hybrid (Top-10) $\rightarrow$ ms-marco Cross-Encoder $\rightarrow$ Top-3 | 94.7% (18/19) | 0.965 | 100.0% | 451.28 ms |
+| FAISS Dense (Top-10) $\rightarrow$ ms-marco Cross-Encoder $\rightarrow$ Top-3 | 100.0% (19/19) | 1.000 | 100.0% | 2100.4 ms |
+| Pinecone Hybrid (Top-10) $\rightarrow$ ms-marco Cross-Encoder $\rightarrow$ Top-3 | 94.7% (18/19) | 0.965 | 100.0% | 1240.4 ms |
+
 
 ## 15.5 Architectural Decision: Why Namespaces Are Explicitly NOT Used
 1. **Global Corporate Knowledge**: Leave policies apply uniformly to all personnel.

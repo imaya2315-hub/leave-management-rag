@@ -6,8 +6,8 @@
       "top1": 100.0,
       "mrr": 1.0,
       "relevant_top3": 100.0,
-      "avg_latency_ms": 17.47,
-      "setup_time_s": 0.5842
+      "avg_latency_ms": 19.01,
+      "setup_time_s": 0.5781
     },
     {
       "dataset": "12-Question Baseline",
@@ -15,8 +15,8 @@
       "top1": 100.0,
       "mrr": 1.0,
       "relevant_top3": 100.0,
-      "avg_latency_ms": 16.15,
-      "setup_time_s": 0.0019
+      "avg_latency_ms": 872.37,
+      "setup_time_s": 8.7449
     },
     {
       "dataset": "19-Question Hard Set",
@@ -24,8 +24,8 @@
       "top1": 78.9,
       "mrr": 0.886,
       "relevant_top3": 100.0,
-      "avg_latency_ms": 21.44,
-      "setup_time_s": 0.5842
+      "avg_latency_ms": 16.19,
+      "setup_time_s": 0.5781
     },
     {
       "dataset": "19-Question Hard Set",
@@ -33,8 +33,8 @@
       "top1": 78.9,
       "mrr": 0.886,
       "relevant_top3": 100.0,
-      "avg_latency_ms": 17.44,
-      "setup_time_s": 0.0019
+      "avg_latency_ms": 797.9,
+      "setup_time_s": 8.7449
     },
     {
       "dataset": "Q06-Q15 Set",
@@ -42,8 +42,8 @@
       "top1": 90.0,
       "mrr": 0.95,
       "relevant_top3": 100.0,
-      "avg_latency_ms": 15.12,
-      "setup_time_s": 0.5842
+      "avg_latency_ms": 19.56,
+      "setup_time_s": 0.5781
     },
     {
       "dataset": "Q06-Q15 Set",
@@ -51,8 +51,8 @@
       "top1": 90.0,
       "mrr": 0.95,
       "relevant_top3": 100.0,
-      "avg_latency_ms": 15.89,
-      "setup_time_s": 0.0019
+      "avg_latency_ms": 723.41,
+      "setup_time_s": 8.7449
     }
   ],
   "details": [
@@ -68,7 +68,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 26.1
+      "latency_ms": 51.01
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -82,7 +82,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 21.35
+      "latency_ms": 18.87
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -96,7 +96,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 18.5
+      "latency_ms": 15.08
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -110,7 +110,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 16.0
+      "latency_ms": 16.11
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -124,7 +124,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 16.51
+      "latency_ms": 15.38
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -138,7 +138,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 16.42
+      "latency_ms": 15.63
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -152,7 +152,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.46
+      "latency_ms": 16.77
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -166,7 +166,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 16.52
+      "latency_ms": 16.26
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -180,7 +180,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.28
+      "latency_ms": 16.89
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -194,7 +194,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.54
+      "latency_ms": 15.46
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -208,7 +208,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.37
+      "latency_ms": 15.55
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -222,7 +222,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 16.63
+      "latency_ms": 15.12
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -236,7 +236,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.86
+      "latency_ms": 1815.58
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -250,7 +250,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 14.54
+      "latency_ms": 1168.92
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -264,7 +264,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 14.14
+      "latency_ms": 1147.2
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -278,7 +278,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.21
+      "latency_ms": 824.93
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -292,7 +292,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.05
+      "latency_ms": 377.32
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -306,7 +306,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 16.83
+      "latency_ms": 948.91
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -320,7 +320,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 16.99
+      "latency_ms": 498.49
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -334,7 +334,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 17.71
+      "latency_ms": 1138.35
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -348,7 +348,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.48
+      "latency_ms": 719.62
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -362,7 +362,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.63
+      "latency_ms": 324.29
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -376,7 +376,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 18.57
+      "latency_ms": 399.35
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -390,7 +390,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 17.8
+      "latency_ms": 1105.45
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -403,516 +403,516 @@
       "retrieved_top1": "Carry Forward Rules",
       "top1_hit": 0,
       "reciprocal_rank": 0.5,
-      "relevant_top3": 1,
-      "latency_ms": 16.02
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "After joining the company, how long do I have to wait before I can use annual leave?",
-      "expected": "Leave Types And Eligibility",
-      "retrieved_top1": "Leave Types And Eligibility",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 17.08
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "Is sick leave available immediately when someone joins?",
-      "expected": "Leave Types And Eligibility",
-      "retrieved_top1": "Leave Types And Eligibility",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 16.61
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "If I suddenly need a day off for a personal matter, which leave category is intended for that?",
-      "expected": "Leave Types And Eligibility",
-      "retrieved_top1": "Carry Forward Rules",
-      "top1_hit": 0,
-      "reciprocal_rank": 0.5,
-      "relevant_top3": 1,
-      "latency_ms": 20.49
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "What happens to unused days at the end of the year if they are from the casual category?",
-      "expected": "Carry Forward Rules",
-      "retrieved_top1": "Carry Forward Rules",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 83.22
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "Is there a limit on how much annual leave can survive into the following year?",
-      "expected": "Carry Forward Rules",
-      "retrieved_top1": "Leave Types And Eligibility",
-      "top1_hit": 0,
-      "reciprocal_rank": 0.5,
-      "relevant_top3": 1,
-      "latency_ms": 14.43
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "How long do I have to use annual leave that was brought forward from last year?",
-      "expected": "Carry Forward Rules",
-      "retrieved_top1": "Carry Forward Rules",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 21.31
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "When an employee leaves the company, which unused leave can be paid out?",
-      "expected": "Carry Forward Rules",
-      "retrieved_top1": "Carry Forward Rules",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 18.98
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "Do weekends reduce the number of leave days that get deducted?",
-      "expected": "Holiday Calendar",
-      "retrieved_top1": "Holiday Calendar",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 17.25
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "If a company holiday falls during my planned leave, is that day treated like a leave day?",
-      "expected": "Holiday Calendar",
-      "retrieved_top1": "Holiday Calendar",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 16.98
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "Where can I find the company's list of public holidays?",
-      "expected": "Holiday Calendar",
-      "retrieved_top1": "Holiday Calendar",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 15.85
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "What happens when my leave request sits with my manager without a response?",
-      "expected": "Approval Escalation",
-      "retrieved_top1": "Approval Escalation",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 17.54
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "Who should I contact when a leave request stays pending for too long?",
-      "expected": "Approval Escalation",
-      "retrieved_top1": "Approval Escalation",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 17.41
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "Can a leave request be withdrawn after the manager has already approved it?",
-      "expected": "Approval Escalation",
-      "retrieved_top1": "Approval Escalation",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 17.77
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "What is the process when a manager does not act on a leave request?",
-      "expected": "Approval Escalation",
-      "retrieved_top1": "Approval Escalation",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 19.84
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "I have some days left over from this year. Which types disappear and which can move to next year?",
-      "expected": "Carry Forward Rules",
-      "retrieved_top1": "Holiday Calendar",
-      "top1_hit": 0,
-      "reciprocal_rank": 0.3333,
-      "relevant_top3": 1,
-      "latency_ms": 23.26
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "What is the company's rule for taking time off on Saturday or Sunday?",
-      "expected": "Holiday Calendar",
-      "retrieved_top1": "Holiday Calendar",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 18.2
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "How much notice is normally expected before planned annual time off?",
-      "expected": "Leave Types And Eligibility",
-      "retrieved_top1": "Leave Types And Eligibility",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 17.75
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "FAISS",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "What documentation might HR need after several consecutive sick days?",
-      "expected": "Leave Types And Eligibility",
-      "retrieved_top1": "Leave Types And Eligibility",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 17.28
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "How much short-notice personal leave am I allowed each year?",
-      "expected": "Leave Types And Eligibility",
-      "retrieved_top1": "Carry Forward Rules",
-      "top1_hit": 0,
-      "reciprocal_rank": 0.5,
-      "relevant_top3": 1,
-      "latency_ms": 17.8
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "After joining the company, how long do I have to wait before I can use annual leave?",
-      "expected": "Leave Types And Eligibility",
-      "retrieved_top1": "Leave Types And Eligibility",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 19.89
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "Is sick leave available immediately when someone joins?",
-      "expected": "Leave Types And Eligibility",
-      "retrieved_top1": "Leave Types And Eligibility",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 16.57
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "If I suddenly need a day off for a personal matter, which leave category is intended for that?",
-      "expected": "Leave Types And Eligibility",
-      "retrieved_top1": "Carry Forward Rules",
-      "top1_hit": 0,
-      "reciprocal_rank": 0.5,
-      "relevant_top3": 1,
-      "latency_ms": 19.67
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "What happens to unused days at the end of the year if they are from the casual category?",
-      "expected": "Carry Forward Rules",
-      "retrieved_top1": "Carry Forward Rules",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 17.47
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "Is there a limit on how much annual leave can survive into the following year?",
-      "expected": "Carry Forward Rules",
-      "retrieved_top1": "Leave Types And Eligibility",
-      "top1_hit": 0,
-      "reciprocal_rank": 0.5,
-      "relevant_top3": 1,
-      "latency_ms": 21.23
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "How long do I have to use annual leave that was brought forward from last year?",
-      "expected": "Carry Forward Rules",
-      "retrieved_top1": "Carry Forward Rules",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 20.45
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "When an employee leaves the company, which unused leave can be paid out?",
-      "expected": "Carry Forward Rules",
-      "retrieved_top1": "Carry Forward Rules",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 16.59
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "Do weekends reduce the number of leave days that get deducted?",
-      "expected": "Holiday Calendar",
-      "retrieved_top1": "Holiday Calendar",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 17.02
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "If a company holiday falls during my planned leave, is that day treated like a leave day?",
-      "expected": "Holiday Calendar",
-      "retrieved_top1": "Holiday Calendar",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 16.37
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "Where can I find the company's list of public holidays?",
-      "expected": "Holiday Calendar",
-      "retrieved_top1": "Holiday Calendar",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 15.38
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "What happens when my leave request sits with my manager without a response?",
-      "expected": "Approval Escalation",
-      "retrieved_top1": "Approval Escalation",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 17.15
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "Who should I contact when a leave request stays pending for too long?",
-      "expected": "Approval Escalation",
-      "retrieved_top1": "Approval Escalation",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 17.09
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "Can a leave request be withdrawn after the manager has already approved it?",
-      "expected": "Approval Escalation",
-      "retrieved_top1": "Approval Escalation",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 18.11
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "What is the process when a manager does not act on a leave request?",
-      "expected": "Approval Escalation",
-      "retrieved_top1": "Approval Escalation",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 17.64
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "I have some days left over from this year. Which types disappear and which can move to next year?",
-      "expected": "Carry Forward Rules",
-      "retrieved_top1": "Holiday Calendar",
-      "top1_hit": 0,
-      "reciprocal_rank": 0.3333,
-      "relevant_top3": 1,
-      "latency_ms": 16.23
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "What is the company's rule for taking time off on Saturday or Sunday?",
-      "expected": "Holiday Calendar",
-      "retrieved_top1": "Holiday Calendar",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
-      "relevant_top3": 1,
-      "latency_ms": 15.74
-    },
-    {
-      "experiment": "Exp1_FAISS_vs_Pinecone",
-      "dataset": "19-Question Hard Set",
-      "backend": "Pinecone",
-      "alpha": 1.0,
-      "filter": "None",
-      "question": "How much notice is normally expected before planned annual time off?",
-      "expected": "Leave Types And Eligibility",
-      "retrieved_top1": "Leave Types And Eligibility",
-      "top1_hit": 1,
-      "reciprocal_rank": 1.0,
       "relevant_top3": 1,
       "latency_ms": 15.27
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
       "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "After joining the company, how long do I have to wait before I can use annual leave?",
+      "expected": "Leave Types And Eligibility",
+      "retrieved_top1": "Leave Types And Eligibility",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 17.01
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "Is sick leave available immediately when someone joins?",
+      "expected": "Leave Types And Eligibility",
+      "retrieved_top1": "Leave Types And Eligibility",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 16.26
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "If I suddenly need a day off for a personal matter, which leave category is intended for that?",
+      "expected": "Leave Types And Eligibility",
+      "retrieved_top1": "Carry Forward Rules",
+      "top1_hit": 0,
+      "reciprocal_rank": 0.5,
+      "relevant_top3": 1,
+      "latency_ms": 16.75
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "What happens to unused days at the end of the year if they are from the casual category?",
+      "expected": "Carry Forward Rules",
+      "retrieved_top1": "Carry Forward Rules",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 17.85
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "Is there a limit on how much annual leave can survive into the following year?",
+      "expected": "Carry Forward Rules",
+      "retrieved_top1": "Leave Types And Eligibility",
+      "top1_hit": 0,
+      "reciprocal_rank": 0.5,
+      "relevant_top3": 1,
+      "latency_ms": 16.93
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "How long do I have to use annual leave that was brought forward from last year?",
+      "expected": "Carry Forward Rules",
+      "retrieved_top1": "Carry Forward Rules",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 16.65
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "When an employee leaves the company, which unused leave can be paid out?",
+      "expected": "Carry Forward Rules",
+      "retrieved_top1": "Carry Forward Rules",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 15.77
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "Do weekends reduce the number of leave days that get deducted?",
+      "expected": "Holiday Calendar",
+      "retrieved_top1": "Holiday Calendar",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 16.15
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "If a company holiday falls during my planned leave, is that day treated like a leave day?",
+      "expected": "Holiday Calendar",
+      "retrieved_top1": "Holiday Calendar",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 15.91
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "Where can I find the company's list of public holidays?",
+      "expected": "Holiday Calendar",
+      "retrieved_top1": "Holiday Calendar",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 15.5
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "What happens when my leave request sits with my manager without a response?",
+      "expected": "Approval Escalation",
+      "retrieved_top1": "Approval Escalation",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 15.5
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "Who should I contact when a leave request stays pending for too long?",
+      "expected": "Approval Escalation",
+      "retrieved_top1": "Approval Escalation",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 16.0
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "Can a leave request be withdrawn after the manager has already approved it?",
+      "expected": "Approval Escalation",
+      "retrieved_top1": "Approval Escalation",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 15.41
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "What is the process when a manager does not act on a leave request?",
+      "expected": "Approval Escalation",
+      "retrieved_top1": "Approval Escalation",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 15.47
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "I have some days left over from this year. Which types disappear and which can move to next year?",
+      "expected": "Carry Forward Rules",
+      "retrieved_top1": "Holiday Calendar",
+      "top1_hit": 0,
+      "reciprocal_rank": 0.3333,
+      "relevant_top3": 1,
+      "latency_ms": 17.53
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "What is the company's rule for taking time off on Saturday or Sunday?",
+      "expected": "Holiday Calendar",
+      "retrieved_top1": "Holiday Calendar",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 16.62
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "How much notice is normally expected before planned annual time off?",
+      "expected": "Leave Types And Eligibility",
+      "retrieved_top1": "Leave Types And Eligibility",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 15.33
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "FAISS",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "What documentation might HR need after several consecutive sick days?",
+      "expected": "Leave Types And Eligibility",
+      "retrieved_top1": "Leave Types And Eligibility",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 15.73
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "How much short-notice personal leave am I allowed each year?",
+      "expected": "Leave Types And Eligibility",
+      "retrieved_top1": "Carry Forward Rules",
+      "top1_hit": 0,
+      "reciprocal_rank": 0.5,
+      "relevant_top3": 1,
+      "latency_ms": 551.83
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "After joining the company, how long do I have to wait before I can use annual leave?",
+      "expected": "Leave Types And Eligibility",
+      "retrieved_top1": "Leave Types And Eligibility",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 641.13
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "Is sick leave available immediately when someone joins?",
+      "expected": "Leave Types And Eligibility",
+      "retrieved_top1": "Leave Types And Eligibility",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 336.97
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "If I suddenly need a day off for a personal matter, which leave category is intended for that?",
+      "expected": "Leave Types And Eligibility",
+      "retrieved_top1": "Carry Forward Rules",
+      "top1_hit": 0,
+      "reciprocal_rank": 0.5,
+      "relevant_top3": 1,
+      "latency_ms": 627.0
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "What happens to unused days at the end of the year if they are from the casual category?",
+      "expected": "Carry Forward Rules",
+      "retrieved_top1": "Carry Forward Rules",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 868.42
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "Is there a limit on how much annual leave can survive into the following year?",
+      "expected": "Carry Forward Rules",
+      "retrieved_top1": "Leave Types And Eligibility",
+      "top1_hit": 0,
+      "reciprocal_rank": 0.5,
+      "relevant_top3": 1,
+      "latency_ms": 1249.17
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "How long do I have to use annual leave that was brought forward from last year?",
+      "expected": "Carry Forward Rules",
+      "retrieved_top1": "Carry Forward Rules",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 521.68
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "When an employee leaves the company, which unused leave can be paid out?",
+      "expected": "Carry Forward Rules",
+      "retrieved_top1": "Carry Forward Rules",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 975.19
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "Do weekends reduce the number of leave days that get deducted?",
+      "expected": "Holiday Calendar",
+      "retrieved_top1": "Holiday Calendar",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 361.93
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "If a company holiday falls during my planned leave, is that day treated like a leave day?",
+      "expected": "Holiday Calendar",
+      "retrieved_top1": "Holiday Calendar",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 688.82
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "Where can I find the company's list of public holidays?",
+      "expected": "Holiday Calendar",
+      "retrieved_top1": "Holiday Calendar",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 658.24
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "What happens when my leave request sits with my manager without a response?",
+      "expected": "Approval Escalation",
+      "retrieved_top1": "Approval Escalation",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 447.12
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "Who should I contact when a leave request stays pending for too long?",
+      "expected": "Approval Escalation",
+      "retrieved_top1": "Approval Escalation",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 886.09
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "Can a leave request be withdrawn after the manager has already approved it?",
+      "expected": "Approval Escalation",
+      "retrieved_top1": "Approval Escalation",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 535.46
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "What is the process when a manager does not act on a leave request?",
+      "expected": "Approval Escalation",
+      "retrieved_top1": "Approval Escalation",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 900.76
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "I have some days left over from this year. Which types disappear and which can move to next year?",
+      "expected": "Carry Forward Rules",
+      "retrieved_top1": "Holiday Calendar",
+      "top1_hit": 0,
+      "reciprocal_rank": 0.3333,
+      "relevant_top3": 1,
+      "latency_ms": 2344.47
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "What is the company's rule for taking time off on Saturday or Sunday?",
+      "expected": "Holiday Calendar",
+      "retrieved_top1": "Holiday Calendar",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 1478.23
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
+      "backend": "Pinecone",
+      "alpha": 1.0,
+      "filter": "None",
+      "question": "How much notice is normally expected before planned annual time off?",
+      "expected": "Leave Types And Eligibility",
+      "retrieved_top1": "Leave Types And Eligibility",
+      "top1_hit": 1,
+      "reciprocal_rank": 1.0,
+      "relevant_top3": 1,
+      "latency_ms": 681.97
+    },
+    {
+      "experiment": "Exp1_FAISS_vs_Pinecone",
+      "dataset": "19-Question Hard Set",
       "backend": "Pinecone",
       "alpha": 1.0,
       "filter": "None",
@@ -922,7 +922,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.66
+      "latency_ms": 405.58
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -936,7 +936,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 17.39
+      "latency_ms": 26.87
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -950,7 +950,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 14.5
+      "latency_ms": 17.63
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -964,7 +964,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 12.61
+      "latency_ms": 17.8
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -978,7 +978,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 13.49
+      "latency_ms": 16.39
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -992,7 +992,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 14.52
+      "latency_ms": 15.91
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1006,7 +1006,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.66
+      "latency_ms": 29.41
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1020,7 +1020,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.74
+      "latency_ms": 16.47
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1034,7 +1034,7 @@
       "top1_hit": 0,
       "reciprocal_rank": 0.5,
       "relevant_top3": 1,
-      "latency_ms": 14.66
+      "latency_ms": 20.5
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1048,7 +1048,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 16.06
+      "latency_ms": 19.08
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1062,7 +1062,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 16.52
+      "latency_ms": 15.5
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1076,7 +1076,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.52
+      "latency_ms": 729.81
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1090,7 +1090,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 15.23
+      "latency_ms": 851.04
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1104,7 +1104,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 16.69
+      "latency_ms": 869.2
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1118,7 +1118,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 12.84
+      "latency_ms": 502.67
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1132,7 +1132,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 17.53
+      "latency_ms": 631.58
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1146,7 +1146,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 14.42
+      "latency_ms": 347.6
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1160,7 +1160,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 14.26
+      "latency_ms": 498.9
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1174,7 +1174,7 @@
       "top1_hit": 0,
       "reciprocal_rank": 0.5,
       "relevant_top3": 1,
-      "latency_ms": 16.91
+      "latency_ms": 1118.79
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1188,7 +1188,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 18.3
+      "latency_ms": 762.92
     },
     {
       "experiment": "Exp1_FAISS_vs_Pinecone",
@@ -1202,7 +1202,7 @@
       "top1_hit": 1,
       "reciprocal_rank": 1.0,
       "relevant_top3": 1,
-      "latency_ms": 17.24
+      "latency_ms": 921.62
     }
   ]
 }

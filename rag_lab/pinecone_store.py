@@ -222,6 +222,7 @@ class PineconeStore:
             existing_indexes = [idx.name for idx in self._pc.list_indexes()]
 
             if self.config.index_name not in existing_indexes:
+                print(f"[Pinecone] Creating serverless index '{self.config.index_name}' ({self.config.cloud}/{self.config.region})...")
                 self._pc.create_index(
                     name=self.config.index_name,
                     dimension=self.config.dimension,
@@ -231,13 +232,18 @@ class PineconeStore:
                         region=self.config.region,
                     ),
                 )
-                # Wait briefly for index initialization
-                time.sleep(2)
+                while True:
+                    desc = self._pc.describe_index(self.config.index_name)
+                    status = desc.status
+                    is_ready = status.get("ready", False) if isinstance(status, dict) else getattr(status, "ready", False)
+                    if is_ready:
+                        break
+                    time.sleep(1)
 
             self._index = self._pc.Index(self.config.index_name)
             self.is_live = True
         except Exception as exc:
-            # Fallback to mock index with a clear diagnostic flag
+            print(f"[Pinecone Warning] Live Pinecone init failed: {exc}. Falling back to mock index.")
             self._index = MockPineconeIndex(
                 name=self.config.index_name,
                 dimension=self.config.dimension,
@@ -245,6 +251,7 @@ class PineconeStore:
             )
             self.is_live = False
             self.last_error = str(exc)
+
 
     def upsert_chunks(
         self,

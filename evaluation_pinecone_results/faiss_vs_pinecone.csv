@@ -1,7 +1,7 @@
 ﻿dataset,backend,top1,mrr,relevant_top3,avg_latency_ms,setup_time_s
-12-Question Baseline,FAISS (Dense),100.0,1.0,100.0,17.47,0.5842
-12-Question Baseline,Pinecone (Dense),100.0,1.0,100.0,16.15,0.0019
-19-Question Hard Set,FAISS (Dense),78.9,0.886,100.0,21.44,0.5842
-19-Question Hard Set,Pinecone (Dense),78.9,0.886,100.0,17.44,0.0019
-Q06-Q15 Set,FAISS (Dense),90.0,0.95,100.0,15.12,0.5842
-Q06-Q15 Set,Pinecone (Dense),90.0,0.95,100.0,15.89,0.0019
+12-Question Baseline,FAISS (Dense),100.0,1.0,100.0,19.01,0.5781
+12-Question Baseline,Pinecone (Dense),100.0,1.0,100.0,872.37,8.7449
+19-Question Hard Set,FAISS (Dense),78.9,0.886,100.0,16.19,0.5781
+19-Question Hard Set,Pinecone (Dense),78.9,0.886,100.0,797.9,8.7449
+Q06-Q15 Set,FAISS (Dense),90.0,0.95,100.0,19.56,0.5781
+Q06-Q15 Set,Pinecone (Dense),90.0,0.95,100.0,723.41,8.7449

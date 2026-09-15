@@ -1,3 +1,3 @@
 ﻿Pipeline,Top-1,MRR,Relevant Top-3,Avg Latency
-FAISS Dense (Top-10) -> ms-marco Cross-Encoder -> Top-3,100.0%,1.0,100.0%,2755.62 ms
-Pinecone Hybrid (Top-10) -> ms-marco Cross-Encoder -> Top-3,94.7%,0.965,100.0%,451.28 ms
+FAISS Dense (Top-10) -> ms-marco Cross-Encoder -> Top-3,100.0%,1.0,100.0%,2100.36 ms
+Pinecone Hybrid (Top-10) -> ms-marco Cross-Encoder -> Top-3,94.7%,0.965,100.0%,1240.40 ms

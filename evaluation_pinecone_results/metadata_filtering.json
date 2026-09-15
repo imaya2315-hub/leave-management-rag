@@ -5,7 +5,7 @@
       "Top-1": "100.0%",
       "MRR": 1.0,
       "Relevant Top-3": "100.0%",
-      "Avg Latency": "22.99 ms",
+      "Avg Latency": "483.96 ms",
       "Avg Search Space": "14 chunks (100%)"
     },
     {
@@ -13,7 +13,7 @@
       "Top-1": "100.0%",
       "MRR": 1.0,
       "Relevant Top-3": "100.0%",
-      "Avg Latency": "22.09 ms",
+      "Avg Latency": "711.39 ms",
       "Avg Search Space": "~3.5 chunks (25% search space)"
     }
   ],
@@ -27,8 +27,8 @@
       "unfiltered_hit": 1,
       "filtered_hit": 1,
       "search_space_chunks": "1/14",
-      "unfiltered_lat_ms": 21.61,
-      "filtered_lat_ms": 22.8
+      "unfiltered_lat_ms": 781.55,
+      "filtered_lat_ms": 897.88
     },
     {
       "question": "Do I need a medical certificate for sick leave?",
@@ -39,8 +39,8 @@
       "unfiltered_hit": 1,
       "filtered_hit": 1,
       "search_space_chunks": "1/14",
-      "unfiltered_lat_ms": 21.78,
-      "filtered_lat_ms": 21.15
+      "unfiltered_lat_ms": 320.43,
+      "filtered_lat_ms": 320.29
     },
     {
       "question": "When does a new employee become eligible for annual leave?",
@@ -51,8 +51,8 @@
       "unfiltered_hit": 1,
       "filtered_hit": 1,
       "search_space_chunks": "1/14",
-      "unfiltered_lat_ms": 22.76,
-      "filtered_lat_ms": 24.07
+      "unfiltered_lat_ms": 516.19,
+      "filtered_lat_ms": 308.73
     },
     {
       "question": "How many days of annual leave am I entitled to per year?",
@@ -63,8 +63,8 @@
       "unfiltered_hit": 1,
       "filtered_hit": 1,
       "search_space_chunks": "1/14",
-      "unfiltered_lat_ms": 27.28,
-      "filtered_lat_ms": 22.97
+      "unfiltered_lat_ms": 375.37,
+      "filtered_lat_ms": 568.87
     },
     {
       "question": "How many annual leave days carry forward to next year?",
@@ -75,8 +75,8 @@
       "unfiltered_hit": 1,
       "filtered_hit": 1,
       "search_space_chunks": "1/14",
-      "unfiltered_lat_ms": 27.3,
-      "filtered_lat_ms": 20.52
+      "unfiltered_lat_ms": 632.68,
+      "filtered_lat_ms": 1229.89
     },
     {
       "question": "What happens to unused sick leave at year end?",
@@ -87,8 +87,8 @@
       "unfiltered_hit": 1,
       "filtered_hit": 1,
       "search_space_chunks": "1/14",
-      "unfiltered_lat_ms": 21.01,
-      "filtered_lat_ms": 22.13
+      "unfiltered_lat_ms": 481.18,
+      "filtered_lat_ms": 327.6
     },
     {
       "question": "Am I paid out for unused leave when I leave the company?",
@@ -99,8 +99,8 @@
       "unfiltered_hit": 1,
       "filtered_hit": 1,
       "search_space_chunks": "4/14",
-      "unfiltered_lat_ms": 21.29,
-      "filtered_lat_ms": 21.26
+      "unfiltered_lat_ms": 354.92,
+      "filtered_lat_ms": 369.27
     },
     {
       "question": "By when must carried-forward annual leave be used?",
@@ -111,8 +111,8 @@
       "unfiltered_hit": 1,
       "filtered_hit": 1,
       "search_space_chunks": "1/14",
-      "unfiltered_lat_ms": 24.05,
-      "filtered_lat_ms": 20.38
+      "unfiltered_lat_ms": 542.5,
+      "filtered_lat_ms": 1589.52
     },
     {
       "question": "What public holidays does the company observe?",
@@ -123,8 +123,8 @@
       "unfiltered_hit": 1,
       "filtered_hit": 1,
       "search_space_chunks": "2/14",
-      "unfiltered_lat_ms": 20.33,
-      "filtered_lat_ms": 21.1
+      "unfiltered_lat_ms": 548.63,
+      "filtered_lat_ms": 629.89
     },
     {
       "question": "Are weekends already accounted for in the holiday calendar?",
@@ -135,8 +135,8 @@
       "unfiltered_hit": 1,
       "filtered_hit": 1,
       "search_space_chunks": "2/14",
-      "unfiltered_lat_ms": 23.46,
-      "filtered_lat_ms": 21.48
+      "unfiltered_lat_ms": 611.31,
+      "filtered_lat_ms": 334.87
     },
     {
       "question": "How long does a manager have to approve a leave request?",
@@ -147,8 +147,8 @@
       "unfiltered_hit": 1,
       "filtered_hit": 1,
       "search_space_chunks": "4/14",
-      "unfiltered_lat_ms": 24.46,
-      "filtered_lat_ms": 23.05
+      "unfiltered_lat_ms": 350.23,
+      "filtered_lat_ms": 383.88
     },
     {
       "question": "Can I cancel an already-approved leave request?",
@@ -159,8 +159,8 @@
       "unfiltered_hit": 1,
       "filtered_hit": 1,
       "search_space_chunks": "4/14",
-      "unfiltered_lat_ms": 20.53,
-      "filtered_lat_ms": 24.18
+      "unfiltered_lat_ms": 292.55,
+      "filtered_lat_ms": 1575.98
     }
   ]
 }
