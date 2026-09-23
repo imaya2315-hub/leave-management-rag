@@ -1166,3 +1166,62 @@ Grounded LLM Generation (Groq / Qwen / GPT-OSS)
 Verified Policy Answer + Structured Citations
 ```
 
+
+## 8. LangChain Integration
+
+LangChain has been integrated into the Leave Management System as an **orchestration and integration layer**. It does not replace the custom retrieval algorithms, vector database indexes, or backend business logic.
+
+### 8.1 Why LangChain is Used
+- **Standardized Orchestration**: Coordinates multi-component RAG pipelines, linking query decomposition, retriever adapters, and generation chains using standard abstractions (LCEL Runnables).
+- **Unified Tool Calling**: Exposes backend operations and policy Q&A as LangChain `@tool` definitions, allowing structured parameter extraction and invocation through model tool calling.
+- **Interoperability**: Connects to the Qwen chat model via `langchain-groq` while keeping interfaces modular and cleanly testable.
+
+### 8.2 What LangChain Controls vs. What Remains Custom
+| Component | LangChain Responsibility | Custom Implementation Maintained |
+| :--- | :--- | :--- |
+| **Retriever** | `LangChainRetrieverAdapter` (`BaseRetriever`) wrapping custom retriever | `SemanticRetriever` (FAISS), `PineconeRetriever` (Pinecone serverless), `BM25SparseEncoder` |
+| **Reranking** | Coordinated in retriever adapter pipeline | `ms-marco-MiniLM-L-6-v2` cross-encoder scoring and sorting |
+| **Documents** | `Document(page_content, metadata)` created at integration boundary only | Internal chunk dictionaries with category, leave type, version, and filename metadata |
+| **LLM Generation** | LCEL chain `prompt \| ChatGroq \| StrOutputParser` | Grounded system prompt, hallucination refusal, and extractive fallback logic |
+| **Leave Operations** | `@tool` definitions for balance, history, apply, cancel, approve, reject | **FastAPI backend** is authoritative for all auth, validations, approvals, and PostgreSQL transactions |
+| **Confirmation** | Delegates multi-turn confirmations to `st.session_state.pending_action` | Deterministic parameter validation and action confirmation in Streamlit |
+
+### 8.3 FastAPI as the Single Source of Truth
+LangChain tools **never** bypass FastAPI or directly access the PostgreSQL database:
+```text
+LangChain Tool
+      ↓ (HTTP request with JWT Bearer token)
+FastAPI Endpoint (/api/v1/leaves/, /api/v1/employees/me/, etc.)
+      ↓ (Authentication & RBAC: Employee vs Manager vs Admin)
+Backend Validation (leave balances, probation period, weekend/holiday rules)
+      ↓ (Atomic transaction)
+PostgreSQL Database
+```
+
+### 8.4 Independent Retrieval Evaluation & Verification
+LangChain introduces no modifications to the underlying vector embeddings, sparse indices, or ranking math. A dedicated benchmark suite (`rag_langchain_evaluation.py`) confirms exact parity between Custom and LangChain orchestration:
+
+| Dataset | Pipeline | P@1 | P@3 | P@5 | R@1 | R@3 | R@5 | MRR | nDCG@3 | nDCG@5 | Latency |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **12-Question Baseline** | Custom Orchestration | 1.00 | 0.83 | 0.83 | 0.42 | 1.00 | 1.00 | 1.0000 | 1.0000 | 1.0000 | 963.59 ms |
+| | LangChain Orchestration | 1.00 | 0.83 | 0.83 | 0.42 | 1.00 | 1.00 | 1.0000 | 1.0000 | 1.0000 | 238.52 ms |
+| **19-Question Hard Set** | Custom Orchestration | 1.00 | 0.74 | 0.74 | 0.52 | 1.00 | 1.00 | 1.0000 | 1.0000 | 1.0000 | 358.11 ms |
+| | LangChain Orchestration | 1.00 | 0.74 | 0.74 | 0.52 | 1.00 | 1.00 | 1.0000 | 1.0000 | 1.0000 | 473.63 ms |
+| **Q06-Q15 Set** | Custom Orchestration | 1.00 | 0.73 | 0.73 | 0.53 | 1.00 | 1.00 | 1.0000 | 1.0000 | 1.0000 | 234.22 ms |
+| | LangChain Orchestration | 1.00 | 0.73 | 0.73 | 0.53 | 1.00 | 1.00 | 1.0000 | 1.0000 | 1.0000 | 235.18 ms |
+
+*Summary*: Retrieval quality (Precision, Recall, MRR, nDCG) is 100% identical between Custom and LangChain orchestration because both share the same underlying dense/sparse representations and reranker.
+
+### 8.5 Configuration & Dual-Mode Toggle
+To toggle LangChain orchestration:
+
+**Via Environment Variable:**
+```bash
+# In .env:
+USE_LANGCHAIN=true   # Enable LangChain orchestration
+USE_LANGCHAIN=false  # Use original custom pipeline
+```
+
+**Via Streamlit UI:**
+A toggle switch in the Streamlit sidebar allows switching between **Custom Orchestration** and **LangChain Orchestration** in real time during testing. Both modes execute against the same loaded vector stores and models.
+

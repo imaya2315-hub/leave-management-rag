@@ -1,0 +1,740 @@
+[
+  {
+    "dataset": "12-Question Baseline",
+    "question": "How many casual leave days can I take in a year?",
+    "expected_title": "Leave Types And Eligibility",
+    "custom_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 8788.83,
+    "langchain_latency_ms": 276.89,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "12-Question Baseline",
+    "question": "Do I need a medical certificate for sick leave?",
+    "expected_title": "Leave Types And Eligibility",
+    "custom_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 260.07,
+    "langchain_latency_ms": 209.71,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "12-Question Baseline",
+    "question": "When does a new employee become eligible for annual leave?",
+    "expected_title": "Leave Types And Eligibility",
+    "custom_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 238.41,
+    "langchain_latency_ms": 223.7,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "12-Question Baseline",
+    "question": "How many days of annual leave am I entitled to per year?",
+    "expected_title": "Leave Types And Eligibility",
+    "custom_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 227.88,
+    "langchain_latency_ms": 245.31,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "12-Question Baseline",
+    "question": "How many annual leave days carry forward to next year?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 259.74,
+    "langchain_latency_ms": 224.84,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "12-Question Baseline",
+    "question": "What happens to unused sick leave at year end?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 257.77,
+    "langchain_latency_ms": 221.96,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "12-Question Baseline",
+    "question": "Am I paid out for unused leave when I leave the company?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 239.14,
+    "langchain_latency_ms": 259.47,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "12-Question Baseline",
+    "question": "By when must carried-forward annual leave be used?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 262.86,
+    "langchain_latency_ms": 220.6,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "12-Question Baseline",
+    "question": "What public holidays does the company observe?",
+    "expected_title": "Holiday Calendar",
+    "custom_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 257.55,
+    "langchain_latency_ms": 248.79,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "12-Question Baseline",
+    "question": "Are weekends already accounted for in the holiday calendar?",
+    "expected_title": "Holiday Calendar",
+    "custom_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 249.77,
+    "langchain_latency_ms": 227.99,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "12-Question Baseline",
+    "question": "How long does a manager have to approve a leave request?",
+    "expected_title": "Approval Escalation",
+    "custom_titles": [
+      "Approval Escalation",
+      "Approval Escalation",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Approval Escalation",
+      "Approval Escalation",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 283.83,
+    "langchain_latency_ms": 248.67,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "12-Question Baseline",
+    "question": "Can I cancel an already-approved leave request?",
+    "expected_title": "Approval Escalation",
+    "custom_titles": [
+      "Approval Escalation",
+      "Approval Escalation",
+      "Approval Escalation"
+    ],
+    "langchain_titles": [
+      "Approval Escalation",
+      "Approval Escalation",
+      "Approval Escalation"
+    ],
+    "custom_latency_ms": 237.18,
+    "langchain_latency_ms": 254.32,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "How much short-notice personal leave am I allowed each year?",
+    "expected_title": "Leave Types And Eligibility",
+    "custom_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 217.57,
+    "langchain_latency_ms": 288.48,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "After joining the company, how long do I have to wait before I can use annual leave?",
+    "expected_title": "Leave Types And Eligibility",
+    "custom_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 244.2,
+    "langchain_latency_ms": 358.32,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "Is sick leave available immediately when someone joins?",
+    "expected_title": "Leave Types And Eligibility",
+    "custom_titles": [
+      "Leave Types And Eligibility",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Leave Types And Eligibility",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 267.08,
+    "langchain_latency_ms": 294.91,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "If I suddenly need a day off for a personal matter, which leave category is intended for that?",
+    "expected_title": "Leave Types And Eligibility",
+    "custom_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 305.7,
+    "langchain_latency_ms": 512.99,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "What happens to unused days at the end of the year if they are from the casual category?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 1980.92,
+    "langchain_latency_ms": 3679.34,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "Is there a limit on how much annual leave can survive into the following year?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 315.42,
+    "langchain_latency_ms": 293.17,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "How long do I have to use annual leave that was brought forward from last year?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 294.99,
+    "langchain_latency_ms": 249.07,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "When an employee leaves the company, which unused leave can be paid out?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 238.58,
+    "langchain_latency_ms": 243.35,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "Do weekends reduce the number of leave days that get deducted?",
+    "expected_title": "Holiday Calendar",
+    "custom_titles": [
+      "Holiday Calendar",
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Holiday Calendar",
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 223.6,
+    "langchain_latency_ms": 226.83,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "If a company holiday falls during my planned leave, is that day treated like a leave day?",
+    "expected_title": "Holiday Calendar",
+    "custom_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 242.82,
+    "langchain_latency_ms": 232.13,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "Where can I find the company's list of public holidays?",
+    "expected_title": "Holiday Calendar",
+    "custom_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 195.44,
+    "langchain_latency_ms": 242.25,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "What happens when my leave request sits with my manager without a response?",
+    "expected_title": "Approval Escalation",
+    "custom_titles": [
+      "Approval Escalation",
+      "Approval Escalation",
+      "Approval Escalation"
+    ],
+    "langchain_titles": [
+      "Approval Escalation",
+      "Approval Escalation",
+      "Approval Escalation"
+    ],
+    "custom_latency_ms": 234.56,
+    "langchain_latency_ms": 272.31,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "Who should I contact when a leave request stays pending for too long?",
+    "expected_title": "Approval Escalation",
+    "custom_titles": [
+      "Approval Escalation",
+      "Approval Escalation",
+      "Approval Escalation"
+    ],
+    "langchain_titles": [
+      "Approval Escalation",
+      "Approval Escalation",
+      "Approval Escalation"
+    ],
+    "custom_latency_ms": 245.83,
+    "langchain_latency_ms": 311.87,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "Can a leave request be withdrawn after the manager has already approved it?",
+    "expected_title": "Approval Escalation",
+    "custom_titles": [
+      "Approval Escalation",
+      "Approval Escalation",
+      "Approval Escalation"
+    ],
+    "langchain_titles": [
+      "Approval Escalation",
+      "Approval Escalation",
+      "Approval Escalation"
+    ],
+    "custom_latency_ms": 252.5,
+    "langchain_latency_ms": 245.26,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "What is the process when a manager does not act on a leave request?",
+    "expected_title": "Approval Escalation",
+    "custom_titles": [
+      "Approval Escalation",
+      "Approval Escalation",
+      "Approval Escalation"
+    ],
+    "langchain_titles": [
+      "Approval Escalation",
+      "Approval Escalation",
+      "Approval Escalation"
+    ],
+    "custom_latency_ms": 257.11,
+    "langchain_latency_ms": 271.83,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "I have some days left over from this year. Which types disappear and which can move to next year?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 343.02,
+    "langchain_latency_ms": 307.11,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "What is the company's rule for taking time off on Saturday or Sunday?",
+    "expected_title": "Holiday Calendar",
+    "custom_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 289.6,
+    "langchain_latency_ms": 268.5,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "How much notice is normally expected before planned annual time off?",
+    "expected_title": "Leave Types And Eligibility",
+    "custom_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 377.13,
+    "langchain_latency_ms": 440.74,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "19-Question Hard Set",
+    "question": "What documentation might HR need after several consecutive sick days?",
+    "expected_title": "Leave Types And Eligibility",
+    "custom_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Approval Escalation"
+    ],
+    "langchain_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Approval Escalation"
+    ],
+    "custom_latency_ms": 277.94,
+    "langchain_latency_ms": 260.46,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "Q06-Q15 Set",
+    "question": "How much Annual Leave can be carried forward to the next year?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 205.22,
+    "langchain_latency_ms": 225.32,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "Q06-Q15 Set",
+    "question": "By when must carried-forward Annual Leave be used?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 234.22,
+    "langchain_latency_ms": 232.54,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "Q06-Q15 Set",
+    "question": "Does unused Sick Leave carry forward?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 228.94,
+    "langchain_latency_ms": 221.59,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "Q06-Q15 Set",
+    "question": "Does unused Casual Leave carry forward?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 219.03,
+    "langchain_latency_ms": 228.11,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "Q06-Q15 Set",
+    "question": "How much advance notice is expected for Annual Leave?",
+    "expected_title": "Leave Types And Eligibility",
+    "custom_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 226.96,
+    "langchain_latency_ms": 225.47,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "Q06-Q15 Set",
+    "question": "Are Saturday and Sunday treated as working days for leave calculations?",
+    "expected_title": "Holiday Calendar",
+    "custom_titles": [
+      "Holiday Calendar",
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Holiday Calendar",
+      "Leave Types And Eligibility",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 245.37,
+    "langchain_latency_ms": 241.08,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "Q06-Q15 Set",
+    "question": "Is August 15 a company holiday?",
+    "expected_title": "Holiday Calendar",
+    "custom_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 230.54,
+    "langchain_latency_ms": 251.16,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "Q06-Q15 Set",
+    "question": "Annual Leave is available immediately after joining, correct?",
+    "expected_title": "Leave Types And Eligibility",
+    "custom_titles": [
+      "Leave Types And Eligibility",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Leave Types And Eligibility",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 245.93,
+    "langchain_latency_ms": 259.28,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "Q06-Q15 Set",
+    "question": "Annual Leave can be carried forward without any cap, right?",
+    "expected_title": "Carry Forward Rules",
+    "custom_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "langchain_titles": [
+      "Carry Forward Rules",
+      "Carry Forward Rules",
+      "Carry Forward Rules"
+    ],
+    "custom_latency_ms": 237.04,
+    "langchain_latency_ms": 224.92,
+    "retrieval_parity": true
+  },
+  {
+    "dataset": "Q06-Q15 Set",
+    "question": "August 15 is not a company holiday. What leave should I apply for?",
+    "expected_title": "Holiday Calendar",
+    "custom_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Leave Types And Eligibility"
+    ],
+    "langchain_titles": [
+      "Holiday Calendar",
+      "Holiday Calendar",
+      "Leave Types And Eligibility"
+    ],
+    "custom_latency_ms": 268.94,
+    "langchain_latency_ms": 242.29,
+    "retrieval_parity": true
+  }
+]

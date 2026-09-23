@@ -43,6 +43,11 @@ import requests
 import streamlit as st
 
 from rag_lab.agent import answer_policy_question
+from rag_lab.langchain_integration import (
+    answer_policy_question_langchain,
+    choose_tool_langchain,
+    is_langchain_enabled,
+)
 
 
 
@@ -1961,6 +1966,12 @@ with st.sidebar:
             st.session_state.pending_action = {}
             st.session_state.manager_context = {}
 
+    st.divider()
+    st.subheader("Orchestration Engine")
+    default_langchain = is_langchain_enabled()
+    use_langchain = st.toggle("Use LangChain Orchestration", value=default_langchain)
+    st.caption("Custom RAG and LangChain both share identical embeddings, vector stores, and models.")
+
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
@@ -1982,13 +1993,40 @@ if prompt:
             else:
                 answer = handle_action(prompt, st.session_state.token)
         else:
-            tool_name, tool_args = choose_tool(prompt)
-            answer = execute_tool(
-                tool_name,
-                tool_args,
-                prompt,
-                st.session_state.token,
-            )
+            if use_langchain:
+                tool_name, tool_args = choose_tool_langchain(prompt)
+                if tool_name == "answer_policy_question":
+                    ans, sources = answer_policy_question_langchain(prompt)
+                    if sources:
+                        seen_titles = set()
+                        source_titles = []
+                        for s in sources:
+                            title = s.get("title") if isinstance(s, dict) else str(s)
+                            if title and title not in seen_titles:
+                                seen_titles.add(title)
+                                source_titles.append(title)
+                        if source_titles:
+                            ans = f"{ans}\n\n*Sources: {', '.join(source_titles)}*"
+                    answer = ans
+                else:
+                    print(f"[LANGCHAIN] Leave operation")
+                    print(f"[TOOL] {tool_name}")
+                    print(f"[BACKEND] FastAPI")
+                    print(f"[DATABASE] PostgreSQL")
+                    answer = execute_tool(
+                        tool_name,
+                        tool_args,
+                        prompt,
+                        st.session_state.token,
+                    )
+            else:
+                tool_name, tool_args = choose_tool(prompt)
+                answer = execute_tool(
+                    tool_name,
+                    tool_args,
+                    prompt,
+                    st.session_state.token,
+                )
     except requests.HTTPError as exc:
         answer = f"The backend request failed: {_extract_error_detail(exc)}"
     except Exception as exc:
